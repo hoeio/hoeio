@@ -5,7 +5,7 @@
 On-device AI · LLM compression · MLOps · Mobile AI
 
 📍 Seoul, Korea · remote · UTC-aligned hours
-📧 [woobin3069@gmail.com](mailto:woobin3069@gmail.com) · 💼 [LinkedIn](https://linkedin.com/in/woobeen-back-a29ba5259) · 🗂 [c11.kr/woobeen_portfolio](https://c11.kr/woobeen_portfolio)
+📧 [woobin3069@gmail.com](mailto:woobin3069@gmail.com) · 💼 [LinkedIn](https://linkedin.com/in/woobeen-back-a29ba5259)
 🟢 Looking for full-time remote roles in on-device / edge LLM inference, model compression, or mobile AI (available after military discharge, Feb 2027).
 
 ---
@@ -102,9 +102,9 @@ On-device AI · LLM compression · MLOps · Mobile AI
 | 2021 | Yonam Institute of Technology Prediction Contest, High School League — Grand Prize |
 | 2021 | Gaion New Business Using Trading Big Data — Award |
 | 2021 | Korea Power Exchange Public Data Application — Award |
-| 2022 | Intflow Creative Hackathon, NIA75 AI Contest — Gold Prize (livestock estrus-sign detection) |
+| 2022 | Intflow Creative Hackathon, NIA75 AI Contest — Gold Prize (livestock estrus-sign detection) · press: [Hankook Today](https://www.hantoday.net/news/articleView.html?idxno=37006), [AI Times](https://www.aitimes.com/news/articleView.html?idxno=148418) |
 | 2022 | Korea Univ. Pediatric X-ray Data Assignment — Grand Prize |
-| 2022 | Quantum Computing AI SW Development Competition — Award |
+| 2022 | Pohang Technopark Quantum Computing AI SW Development Competition, Development (Problem-Solving) category — Award · press: [Newsworks](https://www.newsworks.co.kr/news/articleView.html?idxno=701430), [Jeonmae](https://www.jeonmae.co.kr/news/articleView.html?idxno=933035), [GB Prime News](https://www.gbprimenews.com/news/articleView.html?idxno=129507) |
 | 2023 | Small Business Data Analysis and Utilization Contest, Service Development — Award |
 | 2023 | KIMFT Innovation Idea Contest — Award |
 
@@ -141,4 +141,4 @@ On-device AI · LLM compression · MLOps · Mobile AI
 
 ---
 
-📧 [woobin3069@gmail.com](mailto:woobin3069@gmail.com) · 💼 [LinkedIn](https://linkedin.com/in/woobeen-back-a29ba5259) · 🗂 [Portfolio](https://c11.kr/woobeen_portfolio)
+📧 [woobin3069@gmail.com](mailto:woobin3069@gmail.com) · 💼 [LinkedIn](https://linkedin.com/in/woobeen-back-a29ba5259)

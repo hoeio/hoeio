@@ -79,7 +79,6 @@ On-device AI · LLM compression · MLOps · Mobile AI
 - Diagnosed three blockers that kept the Adreno 660 GPU from loading (an OpenCL 2.0 mismatch, lost native logs, a kernel-compiler bug) and resolved them, with a self-check that falls back to the CPU if a driver misbehaves.
 - Saves the model's state after each reply, so a follow-up in a 2,000-token chat is read in ~3 s instead of ~110 s (calculated from measured read speed, not measured end-to-end).
 - Wrote up the experiments that did not help (speculative decoding, n-gram lookup, a smaller quantization) next to the ones that did.
-- *Note: much of the C/C++ was written with an AI coding assistant; I directed the work and ran the on-phone tests that found the problems.*
 
 ---
 

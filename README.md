@@ -1,6 +1,6 @@
 # Woobeen Back
 
-**I make LLMs run well on small devices, and I have been building AI products since high school.**
+**I make LLMs run well on small devices, and I have been building AI products since 2020.**
 
 On-device AI · LLM compression · MLOps · Mobile AI
 

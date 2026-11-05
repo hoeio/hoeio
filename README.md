@@ -72,10 +72,10 @@ On-device AI · LLM compression · MLOps · Mobile AI
 ---
 
 ## Personal Project: Vollie — on-device LLM runtime tuning
-*Built during military service · Android · Qwen3.5 4B · not launched yet (store/repo links, more devices and models, GPU numbers, and a comparison against llama.cpp's own benchmark are still to come)*
+*Built during military service · Android · Granite-4.0-H-Tiny (mixture-of-experts) · latest app 2.2.11+34 (research kit r6) · research log, rules, patches and reproduction script: [github.com/hoeio/vollie](https://github.com/hoeio/vollie)*
 
 - Chooses CPU cores, thread counts, context size, and cache format per phone at runtime, and backs off as the phone heats up, instead of shipping one fixed setup.
-- On a Snapdragon 888 it sustains **5.4–5.9 tok/s**, against ~4.5 tok/s for a default llamadart setup once the phone is hot, and uses **14% less energy per token** (1.67 vs 1.93 J).
+- On a Galaxy Z Flip 3 (Snapdragon 888, 8 GB) a patched llama.cpp CPU runtime writes **13.9 tok/s** on the 32-token benchmark, against **9.4** for stock llama.cpp on the same app, file and day; the bit-identical part of the runtime alone gives **12.0**, and the rest comes from a router-weight expert-skip rule that stays within +2 % perplexity of stock. Measured on the phone; every round is logged with its raw device data in the repo above.
 - Diagnosed three blockers that kept the Adreno 660 GPU from loading (an OpenCL 2.0 mismatch, lost native logs, a kernel-compiler bug) and resolved them, with a self-check that falls back to the CPU if a driver misbehaves.
 - Saves the model's state after each reply, so a follow-up in a 2,000-token chat is read in ~3 s instead of ~110 s (calculated from measured read speed, not measured end-to-end).
 - Wrote up the experiments that did not help (speculative decoding, n-gram lookup, a smaller quantization) next to the ones that did.

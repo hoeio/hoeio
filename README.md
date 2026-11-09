@@ -10,11 +10,19 @@ On-device AI · LLM compression · MLOps · Mobile AI
 
 ---
 
+## What I work on
+
+- **Inference runtime:** llama.cpp / GGML CPU work on ARM: NEON kernels, expert prefetch, thread and memory behavior, profiled per operator and per token.
+- **Correctness:** output checked bit-identical across batch sizes, quality gated by perplexity, claims written down before the runs.
+- **Compression:** mixed-precision GGUF quantization and KV-cache quantization; public models 25–35% smaller than their Q8_0 files at +2–7% perplexity.
+
+---
+
 ## Highlights
 
 - **Shipped on-device AI to the public.** On a 4-person team I owned all AI and MLOps for [Ollie](https://apps.apple.com/kr/app/ollie-private-ai-talk/id6740768187), which reached Product Hunt *Product of the Week #3*.
 - **Made a 7B model run at 20 tok/s on a 2021 phone CPU.** [Vollie](#vollie--on-device-llm-runtime-tuning) is my llama.cpp runtime work, built during Army service.
-- **Compressed open models for phones.** EXAONE 3.5 2.4B is 35% smaller than the public Q8_0 for about +3% perplexity ([details](#open-model-compression-at-peekaboolabs)).
+- **Upstream contribution, open and under review.** [ggml-org/llama.cpp #31378](https://github.com/ggml-org/llama.cpp/pull/31378) adds a Metal kernel for `GET_ROWS_BACK` (F32), tested on Apple M4 Pro with `test-backend-ops`. The PR includes benchmarks, including the sizes where it is slower than the CPU. Not merged.
 - **Led a team as a first-year student.** At Eighty 8 Nine I led 4 engineers to launch Noodle4.
 
 ```
@@ -33,6 +41,7 @@ On-device AI · LLM compression · MLOps · Mobile AI
 - Patched llama.cpp CPU runtime: **20.51 tok/s median** over 10 runs, against 9.4 and 8.50 for stock settings on the same phone and file (about 2.2×).
 - The claim rule ("median of 10 plain runs ≥ 20.0, never the best run") and a prediction (central 19.0) were logged before the run. The result came in above the predicted range (18.0–20.0), and the log says so. Quality cost: **+1.91%** perplexity, inside a pre-set +2% budget.
 - Picks CPU cores, threads, context size, and cache format per phone, and backs off as the phone heats up.
+- **Check it without a phone:** [`tools/reproduce.sh`](https://github.com/hoeio/vollie/blob/main/tools/reproduce.sh) rebuilds llama.cpp with the patches on a laptop and checks bit-identity and the perplexity gate. The speed numbers need the phone.
 - *Limits:* a cold start is slower (12.3–18.5 tok/s), and so far it is one phone and one model.
 
 <details>
@@ -46,13 +55,6 @@ On-device AI · LLM compression · MLOps · Mobile AI
 
 </details>
 
-### NeuralPet — does real fly wiring help a learning rule?
-*Research project, CPU only (MacBook Pro M4) · v1.0, Nov 2026 · [github.com/hoeio/neuralpet](https://github.com/hoeio/neuralpet)*
-
-- A digital "pet" whose learning circuit is the mushroom body of the adult *Drosophila* connectome (FlyWire v783, hemibrain as a second fly). It makes no claim to be alive or a faithful fly emulation.
-- **Main finding: real partners did not beat a degree-preserving shuffle** in dopamine-gated learning, and were slightly worse (registered; 3 connectome samples, 2 odour datasets, 64 seeds). Keeping each projection neuron's real out-degree did beat random wiring.
-- Every experiment has a plan committed before it ran, at least 20 seeds per condition, and confidence intervals. Null and inconclusive results are in the [report](https://github.com/hoeio/neuralpet/blob/main/reports/FINAL.md).
-
 ### Open-model compression at Peekaboolabs
 *Mixed-precision GGUF quantization · scripts and results: [hoeio/test-ondevice](https://github.com/hoeio/test-ondevice)*
 
@@ -62,6 +64,11 @@ On-device AI · LLM compression · MLOps · Mobile AI
 | Gemma 3 1B | **25% smaller** | +2% English, +7% Korean |
 
 <sub>The two best of ten compressed files; the repo's report lists all ten, including one 3B variant at +453% English perplexity. llama.cpp on WikiText-2 and a Korean Wikipedia sample, context 512, first 30 chunks, so differences of a few percent are within noise. Reference is Q8_0, not FP16. Re-run on a Mac in Nov 2026.</sub>
+
+### Also: NeuralPet — does real fly wiring help a learning rule?
+*Side research project, CPU only · [github.com/hoeio/neuralpet](https://github.com/hoeio/neuralpet)*
+
+- A digital "pet" learning with the *Drosophila* mushroom-body connectome. Pre-registered plans, 20+ seeds, confidence intervals. **Main result: real wiring did not beat a degree-preserving shuffle.** Null and inconclusive results are in the [report](https://github.com/hoeio/neuralpet/blob/main/reports/FINAL.md).
 
 ---
 

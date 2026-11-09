@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 278" width="640" role="img" aria-labelledby="t d">
+<title id="t">Vollie decode speed on a Galaxy Z Flip 3</title>
+<desc id="d">Stock llama.cpp 9.4 tokens per second, Vollie bit-identical runtime 12.0, Vollie served configuration 20.51 median of 10 runs. Granite-4.0-H-Tiny, Snapdragon 888 CPU.</desc>
+<style>text{font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;fill:#24292f}.m{fill:#6e7781;font-size:12px}.l{font-size:14px}.v{font-size:15px;font-weight:600}.h{font-size:16px;font-weight:600}.b{fill:#8c959f}.a{fill:#1f6feb}.g{stroke:#d0d7de;stroke-width:1}@media (prefers-color-scheme:dark){text{fill:#e6edf3}.m{fill:#8b949e}.b{fill:#6e7681}.a{fill:#58a6ff}.g{stroke:#30363d}}</style>
+<text class="h" x="0" y="20">Vollie: decode speed on a 2021 phone CPU (tok/s, higher is better)</text>
+<text class="m" x="0" y="38">Galaxy Z Flip 3 (Snapdragon 888) · Granite-4.0-H-Tiny 7B MoE · official 32-token benchmark</text>
+<line class="g" x1="210.0" y1="50" x2="210.0" y2="230"/>
+<text class="m" x="210.0" y="250" text-anchor="middle">0</text>
+<line class="g" x1="294.1" y1="50" x2="294.1" y2="230"/>
+<text class="m" x="294.1" y="250" text-anchor="middle">5</text>
+<line class="g" x1="378.2" y1="50" x2="378.2" y2="230"/>
+<text class="m" x="378.2" y="250" text-anchor="middle">10</text>
+<line class="g" x1="462.3" y1="50" x2="462.3" y2="230"/>
+<text class="m" x="462.3" y="250" text-anchor="middle">15</text>
+<line class="g" x1="546.4" y1="50" x2="546.4" y2="230"/>
+<text class="m" x="546.4" y="250" text-anchor="middle">20</text>
+<text class="l" x="0" y="75">Stock llama.cpp</text>
+<rect class="b" x="210" y="58" width="158.1" height="26" rx="3"/>
+<text class="v" x="376.1" y="76">9.4</text>
+<text class="m" x="210" y="100">same phone and model file, Nov 4 (8.50 on Nov 6)</text>
+<text class="l" x="0" y="137">Vollie, bit-identical runtime only</text>
+<rect class="b" x="210" y="120" width="201.8" height="26" rx="3"/>
+<text class="v" x="419.8" y="138">12.0</text>
+<text class="m" x="210" y="162">output identical to stock, Nov 4</text>
+<text class="l" x="0" y="199">Vollie, served config</text>
+<rect class="a" x="210" y="182" width="344.9" height="26" rx="3"/>
+<text class="v" x="562.9" y="200">20.51</text>
+<text class="m" x="210" y="224">median of 10 runs, Nov 8 (research build)</text>
+</svg>

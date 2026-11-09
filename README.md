@@ -14,7 +14,8 @@ On-device AI · LLM compression · MLOps · Mobile AI
 
 - **Shipped on-device AI to the public.** On a 4-person team I owned all AI and MLOps for [Ollie](https://apps.apple.com/kr/app/ollie-private-ai-talk/id6740768187), an on-device chatbot that reached Product Hunt *Product of the Week #3*.
 - **Led a team as a first-year student.** At Eighty 8 Nine I led 4 engineers to launch Noodle4, covering VQA, LLM work, and deployment.
-- **Kept building through Army service.** Vollie is an on-device LLM runtime layer on llama.cpp that adapts to each phone's cores, memory, and heat, with a measured performance report that includes what did not work.
+- **Kept building through Army service.** Vollie is an on-device LLM runtime layer on llama.cpp. On a 2021 phone CPU it runs a 7B mixture-of-experts model at a **20.51 tok/s median** (about 2.2× stock llama.cpp on the same phone and file), under a pre-registered quality gate, with a public log that includes what did not work.
+- **Plans experiments before running them.** NeuralPet tests whether the real fruit-fly mushroom-body wiring helps a learning rule more than matched fake wiring. Plans were committed before the runs, and the main result was a null.
 - **Presented research.** Poster at AI4F (1st Workshop on LLMs and Generative AI for Finance, held with ACM ICAIF 2024) on LLMs for portfolio rebalancing timing.
 
 ```
@@ -41,7 +42,7 @@ On-device AI · LLM compression · MLOps · Mobile AI
   | EXAONE 3.5 2.4B | **35% smaller** (1.84 GB vs 2.84 GB) | +2.4% English, +3.2% Korean |
   | Gemma 3 1B | **25% smaller** | +2% English, +7% Korean |
 
-  llama.cpp perplexity on WikiText-2 and a Korean Wikipedia sample. Scripts and results: [hoeio/test-ondevice](https://github.com/hoeio/test-ondevice).
+  llama.cpp perplexity on WikiText-2 and a Korean Wikipedia sample (context 512, first 30 chunks, so differences of a few percent are within noise; reference is the public Q8_0 file, not FP16). These are the two best of ten compressed files; the repo's report lists all ten, including ones that lost much more quality (one 3B variant is +453% English perplexity). Re-run on a Mac in Nov 2026. Scripts and results: [hoeio/test-ondevice](https://github.com/hoeio/test-ondevice).
 - Used usage data from the live on-device app to see that demand was strongest among users on modest phones without NPU support, so I targeted models under 2–3 GB. Ollie came out of that.
 - Worked on Core ML and NPU (Snapdragon, Exynos) optimization.
 - Ran models on-device across every project: ONNX Runtime (first, in a mobile photo-editing app), then GGUF with llama.cpp after moving to Flutter, plus Core ML on iOS and LiteRT on Android.
@@ -72,13 +73,26 @@ On-device AI · LLM compression · MLOps · Mobile AI
 ---
 
 ## Personal Project: Vollie — on-device LLM runtime tuning
-*Built during military service · Android · Granite-4.0-H-Tiny (mixture-of-experts) · latest app 2.2.11+34 (research kit r6) · research log, rules, patches and reproduction script: [github.com/hoeio/vollie](https://github.com/hoeio/vollie)*
+*Built during military service · Android · Granite-4.0-H-Tiny (7B mixture-of-experts) on a Galaxy Z Flip 3 (Snapdragon 888, 8 GB) · research build 2.2.21+44 (kit r16) · patches, rules, research log and reproduction script: [github.com/hoeio/vollie](https://github.com/hoeio/vollie)*
 
+- **20.51 tok/s median** on Vollie's own 32-token benchmark (10 runs, greedy, measured on the phone), against **9.4** and **8.50** for stock llama.cpp settings on two earlier days with the same phone and model file. The bit-identical part of the runtime alone gives 12.0; the rest comes from a router-weight expert-skip rule, a two-stage output head, a sampler fast path and a fused expert kernel.
+- **Rules written before the runs.** The claim rule ("the median of 10 plain runs is at least 20.0", never the best run) and a central prediction (19.0) were logged first. The prediction missed high, and the log says so. Quality gate: wikitext-2 perplexity within +2% of the served file for the one approved lossy change (served config: +1.91%), everything else bit-identical.
 - Chooses CPU cores, thread counts, context size, and cache format per phone at runtime, and backs off as the phone heats up, instead of shipping one fixed setup.
-- On a Galaxy Z Flip 3 (Snapdragon 888, 8 GB) a patched llama.cpp CPU runtime writes **13.9 tok/s** on the 32-token benchmark, against **9.4** for stock llama.cpp on the same app, file and day; the bit-identical part of the runtime alone gives **12.0**, and the rest comes from a router-weight expert-skip rule that stays within +2 % perplexity of stock. Measured on the phone; every round is logged with its raw device data in the repo above.
-- Diagnosed three blockers that kept the Adreno 660 GPU from loading (an OpenCL 2.0 mismatch, lost native logs, a kernel-compiler bug) and resolved them, with a self-check that falls back to the CPU if a driver misbehaves.
+- **Cold start is slower: 12.3 to 18.5 tok/s.** The cause is memory pages evicted before the run, not arithmetic; fixing it is open work. The result is one phone and one model, and the next step is showing the method transfers to other models and devices.
+- Got OpenCL running on the Adreno 660 GPU after diagnosing three blockers (an OpenCL 2.0 mismatch, lost native logs, a kernel-compiler bug), then measured it at 0.7 to 2.9 tok/s, always below the CPU, so serving stays on the CPU, with a self-check that falls back if a driver misbehaves.
 - Saves the model's state after each reply, so a follow-up in a 2,000-token chat is read in ~3 s instead of ~110 s (calculated from measured read speed, not measured end-to-end).
-- Wrote up the experiments that did not help (speculative decoding, n-gram lookup, a smaller quantization) next to the ones that did.
+- Wrote up what did not help next to what did: draft-model speculation (0.48 to 0.76× the plain rate on the phone), n-gram, EAGLE-3 and MTP drafting, early exit (+2.5% perplexity for the cheapest layer), and several cache and kernel ideas.
+- A production build carrying the same configuration is packaged and host-checked; the store app is not yet updated with it.
+
+---
+
+## Personal Project: NeuralPet — does real fly wiring help a learning rule?
+*Research project, CPU only (MacBook Pro M4) · v1.0, Nov 2026 · [github.com/hoeio/neuralpet](https://github.com/hoeio/neuralpet)*
+
+- A digital "pet" whose learning circuit is the mushroom body of the adult *Drosophila* connectome (FlyWire v783, hemibrain as a second fly), inside a body and world I designed. It makes no claim to be alive or a faithful fly emulation.
+- **Main finding: real mushroom-body partners did not beat a degree-preserving shuffle** in dopamine-gated learning, and were slightly worse (registered; 3 connectome samples, 2 odour datasets, 64 seeds). Keeping each projection neuron's real out-degree did beat random wiring.
+- Every experiment has a plan committed before it ran, at least 20 seeds per condition, bootstrap confidence intervals, and figures built by script. Inconclusive and null results, including a design miss in the creature experiment, are in the [report](https://github.com/hoeio/neuralpet/blob/main/reports/FINAL.md).
+- Includes a read-only research viewer and a locally hosted interactive app for raising a pet. No connectome data is committed; scripts download it.
 
 ---
 
@@ -129,7 +143,7 @@ On-device AI · LLM compression · MLOps · Mobile AI
 
 ## Skills
 
-- **On-device & model work:** llama.cpp, GGML/GGUF, KV-cache quantization, ONNX Runtime, LiteRT, Core ML, model compression (quantization, distillation, pruning), LoRA fine-tuning, VQA, YOLO, Stable Diffusion
+- **On-device & model work:** llama.cpp (C/C++ CPU-kernel patches), GGML/GGUF, KV-cache quantization, Android NDK, ONNX Runtime, LiteRT, Core ML, model compression (quantization, distillation, pruning), LoRA fine-tuning, VQA, YOLO, Stable Diffusion
 - **Stack:** Python, JavaScript, Flutter, PyTorch, TensorFlow, GCP, AWS
 
 ## Press

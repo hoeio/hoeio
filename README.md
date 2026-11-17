@@ -51,9 +51,11 @@ On-device AI · LLM compression · MLOps · Mobile AI
 - Got OpenCL running on the Adreno 660 GPU after diagnosing three blockers (an OpenCL 2.0 mismatch, lost native logs, a kernel-compiler bug), then measured it at 0.7–2.9 tok/s, always below the CPU. Serving stays on the CPU, with a self-check that falls back if a driver misbehaves.
 - Saves the model's state after each reply, so a follow-up in a 2,000-token chat is read in ~3 s instead of ~110 s (calculated from measured read speed, not measured end-to-end).
 - Wrote up what did not help next to what did: draft-model speculation (0.48–0.76× the plain rate on the phone), n-gram, EAGLE-3 and MTP drafting, early exit (+2.5% perplexity for the cheapest layer), and several cache and kernel ideas.
-- Research build 2.2.21+44 (kit r16). A production build with the same configuration is packaged and host-checked; the store app is not yet updated with it.
+- The [Android app on Google Play](https://play.google.com/store/apps/details?id=com.insaneutils.vollie) carries the same round-16 configuration (research build 2.2.21+44, kit r16), so anyone can reproduce the number on their own phone and send back a report. Every result so far is from one phone and one model.
 
 </details>
+
+- **Campaign 2 (in progress, not yet a result):** can a stock 7B-class model (Granite-4.0-H-Tiny, OLMoE-1B-7B) reach **25 tok/s** on the same phone within a +5% perplexity budget? Best measured so far (14 Nov): OLMoE 19.70 and Granite 17.19 tok/s median. Not there yet. Each round is pre-registered by commit before it is run, and null results are logged. See [`campaigns/02-25toks-5pct`](https://github.com/hoeio/vollie/tree/main/campaigns/02-25toks-5pct).
 
 ### Open-model compression at Peekaboolabs
 *Mixed-precision GGUF quantization · scripts and results: [hoeio/test-ondevice](https://github.com/hoeio/test-ondevice)*

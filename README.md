@@ -15,6 +15,7 @@ On-device AI · LLM compression · MLOps · Mobile AI
 - **Inference runtime:** llama.cpp / GGML CPU work on ARM: NEON kernels, expert prefetch, thread and memory behavior, profiled per operator and per token.
 - **Correctness:** output checked bit-identical across batch sizes, quality gated by perplexity, claims written down before the runs.
 - **Compression:** mixed-precision GGUF quantization and KV-cache quantization; public models 25–35% smaller than their Q8_0 files at +2–7% perplexity.
+- **Research with controls:** a connectome-based fly learning model ([NeuralPet](#also-neuralpet--does-real-fly-wiring-help-a-learning-rule), [ChatFLY](#also-chatfly--can-a-simulated-fly-mushroom-body-hold-a-conversation)) where the real wiring is tested against shuffles and ablations, and the nulls are published.
 
 ---
 
@@ -51,9 +52,11 @@ On-device AI · LLM compression · MLOps · Mobile AI
 - Got OpenCL running on the Adreno 660 GPU after diagnosing three blockers (an OpenCL 2.0 mismatch, lost native logs, a kernel-compiler bug), then measured it at 0.7–2.9 tok/s, always below the CPU. Serving stays on the CPU, with a self-check that falls back if a driver misbehaves.
 - Saves the model's state after each reply, so a follow-up in a 2,000-token chat is read in ~3 s instead of ~110 s (calculated from measured read speed, not measured end-to-end).
 - Wrote up what did not help next to what did: draft-model speculation (0.48–0.76× the plain rate on the phone), n-gram, EAGLE-3 and MTP drafting, early exit (+2.5% perplexity for the cheapest layer), and several cache and kernel ideas.
-- Research build 2.2.21+44 (kit r16). A production build with the same configuration is packaged and host-checked; the store app is not yet updated with it.
+- The [Android app on Google Play](https://play.google.com/store/apps/details?id=com.insaneutils.vollie) carries the same round-16 configuration (research build 2.2.21+44, kit r16), so anyone can reproduce the number on their own phone and send back a report. Every result so far is from one phone and one model.
 
 </details>
+
+- **Campaign 2 (in progress, not yet a result):** can a stock 7B-class model (Granite-4.0-H-Tiny, OLMoE-1B-7B) reach **25 tok/s** on the same phone within a +5% perplexity budget? Best measured so far (14 Nov): OLMoE 19.70 and Granite 17.19 tok/s median. Not there yet. Each round is pre-registered by commit before it is run, and null results are logged. See [`campaigns/02-25toks-5pct`](https://github.com/hoeio/vollie/tree/main/campaigns/02-25toks-5pct).
 
 ### Open-model compression at Peekaboolabs
 *Mixed-precision GGUF quantization · scripts and results: [hoeio/test-ondevice](https://github.com/hoeio/test-ondevice)*
@@ -69,6 +72,19 @@ On-device AI · LLM compression · MLOps · Mobile AI
 *Side research project, CPU only · [github.com/hoeio/neuralpet](https://github.com/hoeio/neuralpet)*
 
 - A digital "pet" learning with the *Drosophila* mushroom-body connectome. Pre-registered plans, 20+ seeds, confidence intervals. **Main result: real wiring did not beat a degree-preserving shuffle.** Null and inconclusive results are in the [report](https://github.com/hoeio/neuralpet/blob/main/reports/FINAL.md).
+
+### Also: ChatFLY — can a simulated fly mushroom body hold a conversation?
+*Side research project, CPU only · Python, Brian2 (spiking) + rate model, FlyWire connectome · [github.com/hoeio/ChatFLY](https://github.com/hoeio/ChatFLY)*
+
+- A feedback loop around a simulated mushroom body learns small state machines (parity, then a 10-word language, then a **112-word Toki Pona subset** held by eight coupled "flies"). The "fly" is a computational model, not a living animal.
+- **Latest (Phase 8, 15 Nov):** on a 300-turn conversation with changes of mind, the flies reach **0.997 mean exact-reply accuracy** (min 0.986, test seeds 205–214, rate model, synthetic wiring). Without the Kenyon-cell layer the memories fall to 0.48, and shuffled-teacher controls sit at chance.
+- *Limits, stated in the repo:* several gates were only near-passes or failed (one fly cannot solve conflicting transition tables; routing is designer glue), and on real FlyWire wiring the connectome is **not** shown to help.
+
+### Other builds (2026)
+
+- **[Run My Town](https://github.com/hoeio/run-my-town)** — a pixel-art village simulation that runs itself: residents with memory, an economy with no printed money, elections, laws, courts, newspapers. Flutter + Flame for Android, iOS and web; plays fully offline, with optional AI-written dialogue using the player's own Gemini key (free tier works). ~290 tests. Public release Oct 2026.
+- **[DeepDive](https://github.com/hoeio/deepdive)** — a site for playing alternate reality games inside a simulated "virtual internet" (fake sites, in-game search, mail, puzzles). Next.js, TypeScript, Prisma/SQLite, Vitest + Playwright, with CI and a content validator. Player-side MVP: one playable work so far, no creator editor yet.
+- **[Clawd Companion](https://github.com/hoeio/clawd-code)** — a small 3D mascot that sits beside Claude Code, reacts to the session and speaks short spoken lines from a separate LLM (read-only, budget-capped, your own key). Published on npm as `clawd-companion` (`npx clawd-companion`). Unofficial fan project, not affiliated with Anthropic.
 
 ---
 
@@ -134,7 +150,8 @@ On-device AI · LLM compression · MLOps · Mobile AI
 ## Skills
 
 - **On-device & model work:** llama.cpp (C/C++ CPU-kernel patches), GGML/GGUF, KV-cache quantization, Android NDK, ONNX Runtime, LiteRT, Core ML, model compression (quantization, distillation, pruning), LoRA fine-tuning, VQA, YOLO, Stable Diffusion
-- **Stack:** Python, JavaScript, Flutter, PyTorch, TensorFlow, GCP, AWS
+- **Stack:** Python, JavaScript/TypeScript, Flutter/Dart, Next.js, Node.js, PyTorch, TensorFlow, Brian2, GCP, AWS
+- **Research practice:** pre-registered claim rules, multi-seed runs with confidence intervals, controls and ablations, null results reported
 
 ---
 

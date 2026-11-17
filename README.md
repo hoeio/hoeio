@@ -65,10 +65,11 @@ On-device AI · LLM compression · MLOps · Mobile AI
 
 <sub>The two best of ten compressed files; the repo's report lists all ten, including one 3B variant at +453% English perplexity. llama.cpp on WikiText-2 and a Korean Wikipedia sample, context 512, first 30 chunks, so differences of a few percent are within noise. Reference is Q8_0, not FP16. Re-run on a Mac in Nov 2026.</sub>
 
-### Also: NeuralPet — does real fly wiring help a learning rule?
-*Side research project, CPU only · [github.com/hoeio/neuralpet](https://github.com/hoeio/neuralpet)*
+### Also: fly mushroom-body research (NeuralPet → ChatFLY)
+*Side research, CPU only · [github.com/hoeio/ChatFLY](https://github.com/hoeio/ChatFLY) · [github.com/hoeio/neuralpet](https://github.com/hoeio/neuralpet)*
 
-- A digital "pet" learning with the *Drosophila* mushroom-body connectome. Pre-registered plans, 20+ seeds, confidence intervals. **Main result: real wiring did not beat a degree-preserving shuffle.** Null and inconclusive results are in the [report](https://github.com/hoeio/neuralpet/blob/main/reports/FINAL.md).
+- Can a simulation of the fly mushroom body, built on the FlyWire connectome, learn a small language? In ChatFLY, eight simulated flies hold a 300-turn Toki Pona conversation with replies exactly right 99.7% of the time on new test seeds (synthetic wiring, rate model; controls and failed gates are in the repo).
+- Pre-registered plans, 20+ seeds, and null results kept: in NeuralPet, real wiring did not beat a degree-preserving shuffle ([report](https://github.com/hoeio/neuralpet/blob/main/reports/FINAL.md)). Built with AI coding assistance (Claude Code); see each repo's `CLAUDE.md`.
 
 ---
 

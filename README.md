@@ -1,9 +1,12 @@
-<img src="assets/hero.svg" alt="Woobeen Back: I make LLMs run well on small devices" width="814">
+# Woobeen Back
 
-📍 Seoul, Korea · remote · UTC-aligned hours  
+**I make LLMs run well on small devices, and I have been building AI products since 2020.**
+
+On-device AI · LLM compression · MLOps · Mobile AI
+
+📍 Seoul, Korea · remote · UTC-aligned hours
 📧 [woobin3069@gmail.com](mailto:woobin3069@gmail.com) · 💼 [LinkedIn](https://linkedin.com/in/woobeen-back-a29ba5259)
-
-> 🟢 **Looking for full-time remote roles** in on-device / edge LLM inference, model compression, or mobile AI (available after military discharge, Feb 2027).
+🟢 Looking for full-time remote roles in on-device / edge LLM inference, model compression, or mobile AI (available after military discharge, Feb 2027).
 
 ---
 
@@ -17,42 +20,14 @@
 
 ## Highlights
 
-<table>
-<tr>
-<td width="50%" valign="top">
+- **Shipped on-device AI to the public.** On a 4-person team I owned all AI and MLOps for [Ollie](https://apps.apple.com/kr/app/ollie-private-ai-talk/id6740768187), which reached Product Hunt *Product of the Week #3*.
+- **Made a 7B model run at 20 tok/s on a 2021 phone CPU.** [Vollie](#vollie--on-device-llm-runtime-tuning) is my llama.cpp runtime work, built during Army service.
+- **Upstream contribution, open and under review.** [ggml-org/llama.cpp #31378](https://github.com/ggml-org/llama.cpp/pull/31378) adds a Metal kernel for `GET_ROWS_BACK` (F32), tested on Apple M4 Pro with `test-backend-ops`. The PR includes benchmarks, including the sizes where it is slower than the CPU. Not merged.
+- **Led a team as a first-year student.** At Eighty 8 Nine I led 4 engineers to launch Noodle4.
 
-**Shipped on-device AI to the public**
-
-On a 4-person team I owned all AI and MLOps for [Ollie](https://apps.apple.com/kr/app/ollie-private-ai-talk/id6740768187), which reached Product Hunt *Product of the Week #3*.
-
-</td>
-<td width="50%" valign="top">
-
-**7B model at 20 tok/s on a 2021 phone CPU**
-
-[Vollie](#vollie--on-device-llm-runtime-tuning) is my llama.cpp runtime work, built during Army service.
-
-</td>
-</tr>
-<tr>
-<td valign="top">
-
-**Upstream contribution, open and under review**
-
-[ggml-org/llama.cpp #31378](https://github.com/ggml-org/llama.cpp/pull/31378) adds a Metal kernel for `GET_ROWS_BACK` (F32), tested on Apple M4 Pro with `test-backend-ops`. The PR includes benchmarks, including the sizes where it is slower than the CPU. Not merged.
-
-</td>
-<td valign="top">
-
-**Led a team as a first-year student**
-
-At Eighty 8 Nine I led 4 engineers to launch Noodle4.
-
-</td>
-</tr>
-</table>
-
-<sub>**Timeline:** 2020 Latitude / AI Dungeon (volunteer) → 2023 Noodle4 lead (UK) → 2024 Peekaboolabs AI Lead (Korea) → 2025–27 Army service, building Vollie</sub>
+```
+2020 Latitude / AI Dungeon (volunteer) → 2023 Noodle4 lead (UK) → 2024 Peekaboolabs AI Lead (Korea) → 2025–27 Army service, building Vollie
+```
 
 ---
 
@@ -76,11 +51,9 @@ At Eighty 8 Nine I led 4 engineers to launch Noodle4.
 - Got OpenCL running on the Adreno 660 GPU after diagnosing three blockers (an OpenCL 2.0 mismatch, lost native logs, a kernel-compiler bug), then measured it at 0.7–2.9 tok/s, always below the CPU. Serving stays on the CPU, with a self-check that falls back if a driver misbehaves.
 - Saves the model's state after each reply, so a follow-up in a 2,000-token chat is read in ~3 s instead of ~110 s (calculated from measured read speed, not measured end-to-end).
 - Wrote up what did not help next to what did: draft-model speculation (0.48–0.76× the plain rate on the phone), n-gram, EAGLE-3 and MTP drafting, early exit (+2.5% perplexity for the cheapest layer), and several cache and kernel ideas.
-- The [Android app on Google Play](https://play.google.com/store/apps/details?id=com.insaneutils.vollie) carries the same round-16 configuration (research build 2.2.21+44, kit r16), so anyone can reproduce the number on their own phone and send back a report. Every result so far is from one phone and one model.
+- Research build 2.2.21+44 (kit r16). A production build with the same configuration is packaged and host-checked; the store app is not yet updated with it.
 
 </details>
-
-- **Campaign 2 (in progress, not yet a result):** can a stock 7B-class model (Granite-4.0-H-Tiny, OLMoE-1B-7B) reach **25 tok/s** on the same phone within a +5% perplexity budget? Best measured so far (14 Nov): OLMoE 19.70 and Granite 17.19 tok/s median. Not there yet. Each round is pre-registered by commit before it is run, and null results are logged. See [`campaigns/02-25toks-5pct`](https://github.com/hoeio/vollie/tree/main/campaigns/02-25toks-5pct).
 
 ### Open-model compression at Peekaboolabs
 *Mixed-precision GGUF quantization · scripts and results: [hoeio/test-ondevice](https://github.com/hoeio/test-ondevice)*
@@ -101,17 +74,11 @@ At Eighty 8 Nine I led 4 engineers to launch Noodle4.
 
 ## Experience
 
-| When | Role | Where | Focus |
-|---|---|---|---|
-| Aug 2025 – Feb 2027 | Mandatory military service | Republic of Korea Army | Automation tools for an artillery brigade; built Vollie |
-| Dec 2024 – Jul 2025 | **AI Lead** | Peekaboolabs · Seoul | Shipped Ollie; open-sourced Lora-SDK; built Carve |
-| Aug – Dec 2024 | Freelance AI Engineer | remote | Livestock vision, on-device personalization, screen agent |
-| Feb 2023 – Aug 2024 | **Lead AI Engineer** | Eighty 8 Nine · UK, remote | Led 4 engineers to launch Noodle4 |
-| Jul 2020 – Nov 2021 | Volunteer contributor | Latitude / AI Dungeon | Model-compression experiments |
+### Mandatory Military Service — Republic of Korea Army · Aug 2025 – Feb 2027
+- Built internal automation tools for an artillery brigade, used by 30+ personnel.
+- Won an Army Ideathon award (2026); completed the KAIST SW Education Center AI-SW course for ROKA (2026).
 
-<details open>
-<summary><b>AI Lead — Peekaboolabs</b> · Dec 2024 – Jul 2025 · Seoul, on-site</summary>
-
+### AI Lead — Peekaboolabs · Dec 2024 – Jul 2025 · Seoul, on-site
 *4-person seed-stage startup. Accepted to Smilegate's Orange Planet (Apr 2025). A ₩500M seed round was announced in Oct 2025, after my departure.*
 
 - Owned every AI model, all MLOps, and model compression for the company's on-device products.
@@ -132,11 +99,12 @@ At Eighty 8 Nine I led 4 engineers to launch Noodle4.
 
 </details>
 
-</details>
+### Freelance AI Engineer · Aug – Dec 2024 · remote
+- **Livestock monitoring** — YOLO-based vision system that flags abnormal animal behavior. *Working system.*
+- **On-device personalization** — fine-tuned Stable Diffusion on a user's selfies with several LoRA approaches to generate images on the phone. *Prototype.*
+- **Screen agent** — a vision model finds UI elements on a computer screen and Selenium clicks them. *Working system.*
 
-<details>
-<summary><b>Lead AI Engineer — Eighty 8 Nine</b> · Feb 2023 – Aug 2024 · remote, UK (later Technical Adviser)</summary>
-
+### Lead AI Engineer — Eighty 8 Nine · Feb 2023 – Aug 2024 · remote, UK (later Technical Adviser)
 *Full-time alongside university studies.*
 
 - Led 4 engineers to launch **[Noodle4](https://web.archive.org/web/20240430172023/https://www.noodle4.com/)** (site as of Apr 2024), an AI service that matches brands with influencers and reviews submitted video ads.
@@ -150,31 +118,8 @@ At Eighty 8 Nine I led 4 engineers to launch Noodle4.
 
 </details>
 
-</details>
-
-<details>
-<summary><b>Freelance AI Engineer</b> · Aug – Dec 2024 · remote</summary>
-
-- **Livestock monitoring** — YOLO-based vision system that flags abnormal animal behavior. *Working system.*
-- **On-device personalization** — fine-tuned Stable Diffusion on a user's selfies with several LoRA approaches to generate images on the phone. *Prototype.*
-- **Screen agent** — a vision model finds UI elements on a computer screen and Selenium clicks them. *Working system.*
-
-</details>
-
-<details>
-<summary><b>Mandatory Military Service — Republic of Korea Army</b> · Aug 2025 – Feb 2027</summary>
-
-- Built internal automation tools for an artillery brigade, used by 30+ personnel.
-- Won an Army Ideathon award (2026); completed the KAIST SW Education Center AI-SW course for ROKA (2026).
-
-</details>
-
-<details>
-<summary><b>Volunteer contributor (unpaid) — Latitude / AI Dungeon</b> · Jul 2020 – Nov 2021 · remote, US</summary>
-
+### Volunteer contributor (unpaid) — Latitude / AI Dungeon · Jul 2020 – Nov 2021 · remote, US
 *While in high school.* Joined by sending the team a technical proposal; ran model-compression experiments (distillation, quantization, pruning).
-
-</details>
 
 ---
 
@@ -188,11 +133,8 @@ At Eighty 8 Nine I led 4 engineers to launch Noodle4.
 
 ## Skills
 
-| | |
-|---|---|
-| **Inference runtime** | `llama.cpp` `GGML/GGUF` `C/C++ CPU-kernel patches` `Android NDK` `ONNX Runtime` `LiteRT` `Core ML` |
-| **Model work** | `quantization` `KV-cache quantization` `distillation` `pruning` `LoRA fine-tuning` `VQA` `YOLO` `Stable Diffusion` |
-| **Stack** | `Python` `JavaScript` `Flutter` `PyTorch` `TensorFlow` `GCP` `AWS` |
+- **On-device & model work:** llama.cpp (C/C++ CPU-kernel patches), GGML/GGUF, KV-cache quantization, Android NDK, ONNX Runtime, LiteRT, Core ML, model compression (quantization, distillation, pruning), LoRA fine-tuning, VQA, YOLO, Stable Diffusion
+- **Stack:** Python, JavaScript, Flutter, PyTorch, TensorFlow, GCP, AWS
 
 ---
 
@@ -244,4 +186,4 @@ At Eighty 8 Nine I led 4 engineers to launch Noodle4.
 
 ---
 
-<p align="center">📧 <a href="mailto:woobin3069@gmail.com">woobin3069@gmail.com</a> · 💼 <a href="https://linkedin.com/in/woobeen-back-a29ba5259">LinkedIn</a></p>
+📧 [woobin3069@gmail.com](mailto:woobin3069@gmail.com) · 💼 [LinkedIn](https://linkedin.com/in/woobeen-back-a29ba5259)

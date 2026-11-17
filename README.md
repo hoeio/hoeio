@@ -42,7 +42,7 @@ On-device AI · LLM compression · MLOps · Mobile AI
 - The claim rule ("median of 10 plain runs ≥ 20.0, never the best run") and a prediction (central 19.0) were logged before the run. The result came in above the predicted range (18.0–20.0), and the log says so. Quality cost: **+1.91%** perplexity, inside a pre-set +2% budget.
 - Picks CPU cores, threads, context size, and cache format per phone, and backs off as the phone heats up.
 - **Check it without a phone:** [`tools/reproduce.sh`](https://github.com/hoeio/vollie/blob/main/tools/reproduce.sh) rebuilds llama.cpp with the patches on a laptop and checks bit-identity and the perplexity gate. The speed numbers need the phone.
-- *Limits:* a cold start is slower (12.3–18.5 tok/s), and so far it is one phone and one model.
+- *Limits:* a cold start is slower (12.3–18.5 tok/s). The result also depends on the phone's memory state: on a later day, with less page cache free, the same app printed 11.46 tok/s (logged as R57). So far it is one phone and one model.
 
 <details>
 <summary>More on Vollie</summary>
@@ -51,7 +51,7 @@ On-device AI · LLM compression · MLOps · Mobile AI
 - Got OpenCL running on the Adreno 660 GPU after diagnosing three blockers (an OpenCL 2.0 mismatch, lost native logs, a kernel-compiler bug), then measured it at 0.7–2.9 tok/s, always below the CPU. Serving stays on the CPU, with a self-check that falls back if a driver misbehaves.
 - Saves the model's state after each reply, so a follow-up in a 2,000-token chat is read in ~3 s instead of ~110 s (calculated from measured read speed, not measured end-to-end).
 - Wrote up what did not help next to what did: draft-model speculation (0.48–0.76× the plain rate on the phone), n-gram, EAGLE-3 and MTP drafting, early exit (+2.5% perplexity for the cheapest layer), and several cache and kernel ideas.
-- Research build 2.2.21+44 (kit r16). A production build with the same configuration is packaged and host-checked; the store app is not yet updated with it.
+- The [Android app on Google Play](https://play.google.com/store/apps/details?id=com.insaneutils.vollie) carries the same final campaign-1 configuration (research build 2.2.21+44, kit r16), so anyone can try it on their own phone and send back a report.
 
 </details>
 
@@ -79,7 +79,7 @@ On-device AI · LLM compression · MLOps · Mobile AI
 - Won an Army Ideathon award (2026); completed the KAIST SW Education Center AI-SW course for ROKA (2026).
 
 ### AI Lead — Peekaboolabs · Dec 2024 – Jul 2025 · Seoul, on-site
-*4-person seed-stage startup. Accepted to Smilegate's Orange Planet (Apr 2025). A ₩500M seed round was announced in Oct 2025, after my departure.*
+*4-person seed-stage startup. Accepted to Smilegate's Orange Planet (Apr 2025). A ₩500M seed round was announced in Nov 2025, after my departure.*
 
 - Owned every AI model, all MLOps, and model compression for the company's on-device products.
 - Shipped **[Ollie](https://apps.apple.com/kr/app/ollie-private-ai-talk/id6740768187)**, an on-device AI chatbot — [Product Hunt](https://www.producthunt.com/products/lora-2) Product of the Week #3.

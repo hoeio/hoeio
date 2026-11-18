@@ -10,9 +10,7 @@ Open to remote roles in on-device / edge LLM inference, model compression, and m
 
 <sub>Median of 10 runs on one phone and one model, +1.91% perplexity inside a +2% budget set beforehand. Stock 9.4 is from Nov 4, Vollie 20.51 from Nov 8, same phone and file. The number depends on the phone's memory state: a later day printed 11.46 ([R57](https://github.com/hoeio/vollie/blob/main/campaigns/02-25toks-5pct/STATUS.md)). [Check it without a phone](https://github.com/hoeio/vollie/blob/main/tools/reproduce.sh).</sub>
 
-| Build | Verify | Direct |
-|:--|:--|:--|
-| llama.cpp work on ARM: NEON kernels, expert prefetch, quantization | Predictions and pass rules written before each run; bit-identical and perplexity gates | AI agents write the code; I set the rules, run every phone test, and decide what counts |
+I patch llama.cpp for ARM phones: NEON kernels, expert prefetch, quantization. AI agents write much of the code; I set the rules, run every phone test, and decide what counts.
 
 Agents drift toward making an experiment pass. [The rules](https://github.com/hoeio/vollie/blob/main/RULES.md) and the logs (R11, R25) show where I stopped them. A same-day control (R57) is how I found my own headline number did not hold.
 

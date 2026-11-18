@@ -2,94 +2,49 @@
 
 **I make LLMs run well on small devices, and I have been building AI products since 2020.**
 
-On-device AI · LLM compression · MLOps · Mobile AI
+Seoul, Korea · remote, UTC-aligned · [woobin3069@gmail.com](mailto:woobin3069@gmail.com) · [LinkedIn](https://linkedin.com/in/woobeen-back-a29ba5259)
 
-📍 Seoul, Korea · remote · UTC-aligned hours
-📧 [woobin3069@gmail.com](mailto:woobin3069@gmail.com) · 💼 [LinkedIn](https://linkedin.com/in/woobeen-back-a29ba5259)
-🟢 Looking for full-time remote roles in on-device / edge LLM inference, model compression, or mobile AI (available after military discharge, Feb 2027).
+Looking for full-time remote roles in on-device / edge LLM inference, model compression, or mobile AI. Available after military discharge, Feb 2027.
 
-<img src="assets/glance.svg" alt="At a glance: 20.51 tok/s median of 10 runs for a 7B mixture-of-experts model on a 2021 phone, one device. Ollie, Product of the Week #3. llama.cpp PR #31378 under review. 13 AI and data awards, 2020 to 2023." width="640">
+<img src="assets/glance.svg" alt="At a glance: 20.51 tok/s median of 10 runs for a 7B mixture-of-experts model on a 2021 phone, one device. Ollie, Product of the Week #3. llama.cpp PR #31378 under review. 13 AI and data awards, 2020 to 2023." width="100%">
 
-[Vollie](https://github.com/hoeio/vollie) · [Ollie](https://apps.apple.com/kr/app/ollie-private-ai-talk/id6740768187) · [llama.cpp PR #31378](https://github.com/ggml-org/llama.cpp/pull/31378)
-
----
-
-## What I work on
-
-- **Inference runtime:** llama.cpp / GGML CPU work on ARM: NEON kernels, expert prefetch, thread and memory behavior, profiled per operator and per token.
-- **Correctness:** output checked bit-identical across batch sizes, quality gated by perplexity, claims written down before the runs.
-- **Compression:** mixed-precision GGUF quantization and KV-cache quantization; public models 25–35% smaller than their Q8_0 files at +2–7% perplexity.
-
----
+llama.cpp / GGML on ARM · NEON kernels · expert prefetch · bit-identical checks · perplexity gates · GGUF and KV-cache quantization
 
 ## How I work with AI
 
-I run AI coding agents as a team I manage, and I stay in the loop. I set the goals, budgets, and pass and kill rules before any run. The agents implement. I run every phone benchmark myself, and I decide what counts.
+I manage AI coding agents like a team. I set the goals, budgets, and pass and kill rules before any run, run every phone benchmark myself, and decide what counts. The agents write the code, analysis, and logs.
 
-| I decide and do | The agents do |
-|---|---|
-| Goals, quality budgets, pass and kill rules, written before each run | Patches, NEON kernels, scripts, parsers |
-| All phone benchmarks and full perplexity runs | Analysis, drafting the log, commits |
-| Accepting or rejecting results, changing course | Literature and cost estimates, prediction bands |
-
-- **Agents stop and ask.** In [ChatFLY](https://github.com/hoeio/ChatFLY), the decision records show more than ten points where the agent laid out options and I chose, each written before the run. The standing instructions list what the agent must ask first: changing the goal or the evaluation criteria, and redirecting after a failed gate.
-- **Rules the agents cannot bend.** Left alone, agents drift toward making an experiment pass. A run was planned on a cleaned phone, and I withdrew it: the fix has to work on the phone as it is (R11). After a result landed just outside the quality budget, an agent proposed widening it; I declined, because budgets do not move after results (Nov 5). A speedup claim that came from a bad control was withdrawn (R25). These rules are written in [`RULES.md`](https://github.com/hoeio/vollie/blob/main/RULES.md).
-- **Failures stay on the record.** Failed gates, withdrawn claims, and a same-day control showing that my headline number did not hold on a later day (R57) are in the logs, next to the successes.
-- **Pace with checks.** The second Vollie campaign ran from R50 (Nov 13) to a pre-registered R65 (Nov 17), and ChatFLY went through eight phases in four days, each with gates and controls.
-
----
+- **They stop and ask.** In [ChatFLY](https://github.com/hoeio/ChatFLY), more than ten decision records show the agent laying out options and me choosing, before the run.
+- **They cannot bend the rules.** Agents drift toward making an experiment pass: a run planned on a cleaned phone (withdrawn, R11), a quality budget widened after the result (declined, Nov 5), a speedup from a bad control (withdrawn, R25). The rules are in [`RULES.md`](https://github.com/hoeio/vollie/blob/main/RULES.md).
+- **Failures stay on the record.** Failed gates, withdrawn claims, and a same-day control showing my headline number did not hold on a later day (R57).
+- **Fast, with checks.** Vollie's second campaign went from R50 (Nov 13) to a pre-registered R65 (Nov 17); ChatFLY went through eight gated phases in four days.
 
 ## Projects
 
-### Vollie — on-device LLM runtime tuning
-*Built during military service · Android · Galaxy Z Flip 3 (Snapdragon 888, 8 GB) · Granite-4.0-H-Tiny (7B mixture-of-experts) · [github.com/hoeio/vollie](https://github.com/hoeio/vollie)*
+### Vollie: on-device LLM runtime tuning
+*Android · Galaxy Z Flip 3 · Granite-4.0-H-Tiny (7B MoE) · [GitHub](https://github.com/hoeio/vollie) · [Google Play](https://play.google.com/store/apps/details?id=com.insaneutils.vollie)*
 
-![Vollie decode speed: stock llama.cpp 9.4 tok/s, bit-identical runtime 12.0, served config 20.51 median](assets/vollie-speed.svg)
+<img src="assets/vollie-speed.svg" alt="Vollie decode speed: stock llama.cpp 9.4 tok/s, bit-identical runtime 12.0, served config 20.51 median" width="100%">
 
-- Patched llama.cpp CPU runtime: **20.51 tok/s median** over 10 runs, against 9.4 and 8.50 for stock settings on the same phone and file (about 2.2×).
-- The claim rule ("median of 10 plain runs ≥ 20.0, never the best run") and a prediction (central 19.0) were logged before the run. The result came in above the predicted range (18.0–20.0), and the log says so. Quality cost: **+1.91%** perplexity, inside a pre-set +2% budget.
-- Picks CPU cores, threads, context size, and cache format per phone, and backs off as the phone heats up.
-- **Check it without a phone:** [`tools/reproduce.sh`](https://github.com/hoeio/vollie/blob/main/tools/reproduce.sh) rebuilds llama.cpp with the patches on a laptop and checks bit-identity and the perplexity gate. The speed numbers need the phone.
-- *Limits:* a cold start is slower (12.3–18.5 tok/s). The result also depends on the phone's memory state: on a later day, with less page cache free, the same app printed 11.46 tok/s (logged as R57). So far it is one phone and one model.
+- Patched llama.cpp CPU runtime: **20.51 tok/s** median of 10 runs against 9.4 for stock (about 2.2×), at +1.91% perplexity inside a +2% budget set beforehand. The prediction and pass rule were logged before the run and scored as written.
+- Check it without a phone: [`tools/reproduce.sh`](https://github.com/hoeio/vollie/blob/main/tools/reproduce.sh) rebuilds llama.cpp with the patches and checks bit-identity and the perplexity gate.
+- *Limits:* a cold start is slower (12.3–18.5 tok/s), and on a later day with less page cache free the same app printed 11.46 tok/s (R57). One phone, one model.
 
-<details>
-<summary>More on Vollie</summary>
+### Compression at Peekaboolabs
+Mixed-precision GGUF quantization: EXAONE 3.5 2.4B came out 35% smaller than its public Q8_0 file at +2.4% English perplexity, and Gemma 3 1B 25% smaller at +2%. These are the best two of ten files; [the report](https://github.com/hoeio/test-ondevice) lists all ten.
 
-- Speed comes from a router-weight expert-skip rule, a two-stage output head, a sampler fast path, and a fused expert kernel. The bit-identical part of the runtime alone gives 12.0.
-- Got OpenCL running on the Adreno 660 GPU after diagnosing three blockers (an OpenCL 2.0 mismatch, lost native logs, a kernel-compiler bug), then measured it at 0.7–2.9 tok/s, always below the CPU. Serving stays on the CPU, with a self-check that falls back if a driver misbehaves.
-- Saves the model's state after each reply, so a follow-up in a 2,000-token chat is read in ~3 s instead of ~110 s (calculated from measured read speed, not measured end-to-end).
-- Wrote up what did not help next to what did: draft-model speculation (0.48–0.76× the plain rate on the phone), n-gram, EAGLE-3 and MTP drafting, early exit (+2.5% perplexity for the cheapest layer), and several cache and kernel ideas.
-- The [Android app on Google Play](https://play.google.com/store/apps/details?id=com.insaneutils.vollie) carries the same final campaign-1 configuration (research build 2.2.21+44, kit r16), so anyone can try it on their own phone and send back a report.
+### Upstream
+[llama.cpp #31378](https://github.com/ggml-org/llama.cpp/pull/31378): a Metal kernel for `GET_ROWS_BACK`, tested on an M4 Pro with `test-backend-ops`. Under review. The PR shows where it is slower than the CPU.
 
-</details>
-
-### Open-model compression at Peekaboolabs
-*Mixed-precision GGUF quantization · scripts and results: [hoeio/test-ondevice](https://github.com/hoeio/test-ondevice)*
-
-| Model | Size vs. public Q8_0 | Perplexity change |
-|---|---|---|
-| EXAONE 3.5 2.4B | **35% smaller** (1.84 GB vs 2.84 GB) | +2.4% English, +3.2% Korean |
-| Gemma 3 1B | **25% smaller** | +2% English, +7% Korean |
-
-<sub>The two best of ten compressed files; the repo's report lists all ten, including one 3B variant at +453% English perplexity. llama.cpp on WikiText-2 and a Korean Wikipedia sample, context 512, first 30 chunks, so differences of a few percent are within noise. Reference is Q8_0, not FP16. Re-run on a Mac in Nov 2026.</sub>
-
-### Upstream: llama.cpp PR #31378
-[ggml-org/llama.cpp #31378](https://github.com/ggml-org/llama.cpp/pull/31378) adds a Metal kernel for `GET_ROWS_BACK` (F32), tested on Apple M4 Pro with `test-backend-ops`. The PR includes benchmarks, including the sizes where it is slower than the CPU. Not merged.
-
-### Also: fly mushroom-body research (NeuralPet → ChatFLY)
-*Side research, CPU only · [github.com/hoeio/ChatFLY](https://github.com/hoeio/ChatFLY) · [github.com/hoeio/neuralpet](https://github.com/hoeio/neuralpet)*
-
-- Can a simulation of the fly mushroom body, built on the FlyWire connectome, learn a small language? In ChatFLY, eight simulated flies hold a 300-turn Toki Pona conversation with replies exactly right 99.7% of the time on new test seeds (synthetic wiring, rate model; controls and failed gates are in the repo).
-- Pre-registered plans, 20+ seeds, and null results kept: in NeuralPet, real wiring did not beat a degree-preserving shuffle ([report](https://github.com/hoeio/neuralpet/blob/main/reports/FINAL.md)). Built with AI coding assistance (Claude Code); see each repo's `CLAUDE.md`.
-
----
+### Side research
+[ChatFLY](https://github.com/hoeio/ChatFLY) and [NeuralPet](https://github.com/hoeio/neuralpet): fly mushroom-body simulations built on the FlyWire connectome, with controls and null results kept. Built with AI coding assistance; see each repo's `CLAUDE.md`.
 
 ## Experience
 
-<img src="assets/timeline.svg" alt="Career timeline: 2020 AI Dungeon volunteer; 2023 to 2024 Noodle4 lead at Eighty 8 Nine, UK; August to December 2024 freelance AI engineer; 2024 to 2025 Peekaboolabs AI Lead, Seoul; 2025 to 2027 Army service, building Vollie." width="640">
+<img src="assets/timeline.svg" alt="Career timeline: 2020 AI Dungeon volunteer; 2023 to 2024 Noodle4 lead at Eighty 8 Nine, UK; August to December 2024 freelance AI engineer; 2024 to 2025 Peekaboolabs AI Lead, Seoul; 2025 to 2027 Army service, building Vollie." width="100%">
 
 <details>
-<summary>Roles in detail</summary>
+<summary>Details</summary>
 
 ### Mandatory Military Service — Republic of Korea Army · Aug 2025 – Feb 2027
 - Built internal automation tools for an artillery brigade, used by 30+ personnel.
@@ -138,28 +93,26 @@ I run AI coding agents as a team I manage, and I stay in the loop. I set the goa
 ### Volunteer contributor (unpaid) — Latitude / AI Dungeon · Jul 2020 – Nov 2021 · remote, US
 *While in high school.* Joined by sending the team a technical proposal; ran model-compression experiments (distillation, quantization, pruning).
 
-</details>
+### More on Vollie
 
----
+- Speed comes from a router-weight expert-skip rule, a two-stage output head, a sampler fast path, and a fused expert kernel. The bit-identical part of the runtime alone gives 12.0.
+- Got OpenCL running on the Adreno 660 GPU after diagnosing three blockers (an OpenCL 2.0 mismatch, lost native logs, a kernel-compiler bug), then measured it at 0.7–2.9 tok/s, always below the CPU. Serving stays on the CPU, with a self-check that falls back if a driver misbehaves.
+- Saves the model's state after each reply, so a follow-up in a 2,000-token chat is read in ~3 s instead of ~110 s (calculated from measured read speed, not measured end-to-end).
+- Wrote up what did not help next to what did: draft-model speculation (0.48–0.76× the plain rate on the phone), n-gram, EAGLE-3 and MTP drafting, early exit (+2.5% perplexity for the cheapest layer), and several cache and kernel ideas.
+- The [Android app on Google Play](https://play.google.com/store/apps/details?id=com.insaneutils.vollie) carries the same final campaign-1 configuration (research build 2.2.21+44, kit r16), so anyone can try it on their own phone and send back a report.
 
-<details>
-<summary><b>Research</b></summary>
+### Research
 
 - **AI4F — 1st Workshop on LLMs and Generative AI for Finance, ACM ICAIF 2024 (Nov 14, 2024), poster accepted** ([OpenReview](https://openreview.net/forum?id=av3zeO8K7h)): *Enhancing Portfolio Rebalancing Timing Using GPT: A Macroeconomic Indicator Approach.* An LLM plus a quantitative pipeline that reads macroeconomic indicators to time rebalancing, with backtesting. Second author.
 - **Korean Data Analysis Society, Summer 2024 conference:** *Time-lag Prediction Using Language Models for Events Leading to the U.S. Presidential Election* — predicts the time lag between linked political events from timelines.
 - **[SKKU LAMDA Lab R&E (2021–2022)](https://web.archive.org/web/20261031145539/https://sites.google.com/site/hyoh79/research), as a high school student:** Hybrid Attention Unet++, SNN-Transformer, NFT abuse detection.
 
-</details>
-
-## Skills
+### Skills
 
 - **On-device & model work:** llama.cpp (C/C++ CPU-kernel patches), GGML/GGUF, KV-cache quantization, Android NDK, ONNX Runtime, LiteRT, Core ML, model compression (quantization, distillation, pruning), LoRA fine-tuning, VQA, YOLO, Stable Diffusion
 - **Stack:** Python, JavaScript, Flutter, PyTorch, TensorFlow, GCP, AWS
 
----
-
-<details>
-<summary><b>Awards — 13 AI & data competition awards, 2020–2023</b></summary>
+### Awards (13 AI and data competition awards, 2020–2023)
 
 | Year | Award |
 |---|---|
@@ -179,10 +132,7 @@ I run AI coding agents as a team I manage, and I stay in the loop. I set the goa
 
 *Rank names are English translations of the Korean originals.*
 
-</details>
-
-<details>
-<summary><b>Education, clubs & extracurriculars</b></summary>
+### Education
 
 - **Kyung Hee University** — Industrial and Management Systems Engineering (2023–). On leave for mandatory military service (completes Feb 2027).
   - 1:1 Mentoring Program (2023–) · KHU Ambassador for CES (2023–2024)
@@ -192,10 +142,7 @@ I run AI coding agents as a team I manage, and I stay in the loop. I set the goa
 - Rendezvous, AI research club — member and free-club leader (2020–2021) · Fregic, AI development club (2022)
 - KISTI Cyber Guardians (2021) · National Management Strategy Institute, Youth National Finance Master (2023–2024) · KAIST SW Education Center Military Personnel AI-SW course (2026)
 
-</details>
-
-<details>
-<summary><b>Press</b></summary>
+### Press
 
 - [Peekaboolabs career site — company history (KO, archived)](https://web.archive.org/web/20261031150434/https://career.peekaboolabs.ai/history): how the founder met and hired me as its first team member, AI Lead.
 - [Wowtale, Apr 2025 (EN)](https://wowtale.net/2025/04/25/240348/): Peekaboolabs accepted to Smilegate's Orange Planet.
@@ -203,7 +150,3 @@ I run AI coding agents as a team I manage, and I stay in the loop. I set the goa
 - [AI Times (KO)](https://www.aitimes.com/news/articleView.html?idxno=148418): Intflow NIA75 AI Contest award, livestock estrus-sign detection.
 
 </details>
-
----
-
-📧 [woobin3069@gmail.com](mailto:woobin3069@gmail.com) · 💼 [LinkedIn](https://linkedin.com/in/woobeen-back-a29ba5259)

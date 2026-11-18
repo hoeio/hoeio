@@ -4,6 +4,8 @@
 
 Seoul · remote, UTC-aligned · available Feb 2027 · [woobin3069@gmail.com](mailto:woobin3069@gmail.com) · [LinkedIn](https://linkedin.com/in/woobeen-back-a29ba5259)
 
+Open to remote roles in on-device / edge LLM inference, model compression, and mobile AI.
+
 <img src="assets/hero.svg" alt="20.51 tokens per second: a 7B model on a 2021 phone, against 9.4 for stock llama.cpp. Only the runtime changed." width="100%">
 
 <sub>Median of 10 runs on one phone and one model, +1.91% perplexity inside a +2% budget set beforehand. Stock 9.4 is from Nov 4, Vollie 20.51 from Nov 8, same phone and file. The number depends on the phone's memory state: a later day printed 11.46 ([R57](https://github.com/hoeio/vollie/blob/main/campaigns/02-25toks-5pct/STATUS.md)). [Check it without a phone](https://github.com/hoeio/vollie/blob/main/tools/reproduce.sh).</sub>
@@ -17,7 +19,7 @@ Agents drift toward making an experiment pass. [The rules](https://github.com/ho
 ## Work
 
 - **[Vollie](https://github.com/hoeio/vollie)** (Android, [Google Play](https://play.google.com/store/apps/details?id=com.insaneutils.vollie)): the runtime above, built during Army service.
-- **[Ollie](https://apps.apple.com/kr/app/ollie-private-ai-talk/id6740768187):** on-device chatbot I shipped at Peekaboolabs. Product Hunt Product of the Week #3.
+- **[Ollie](https://apps.apple.com/kr/app/ollie-private-ai-talk/id6740768187):** on-device chatbot shipped at Peekaboolabs, where I owned all AI and MLOps on a 4-person team. Product Hunt Product of the Week #3.
 - **[llama.cpp #31378](https://github.com/ggml-org/llama.cpp/pull/31378):** Metal `GET_ROWS_BACK` kernel, under review.
 - **[Compression](https://github.com/hoeio/test-ondevice):** EXAONE 3.5 2.4B 35% smaller than its public Q8_0 at +2.4% English perplexity.
 - **[ChatFLY](https://github.com/hoeio/ChatFLY), [NeuralPet](https://github.com/hoeio/neuralpet):** fly mushroom-body simulations, controls and null results kept.
@@ -34,11 +36,13 @@ Agents drift toward making an experiment pass. [The rules](https://github.com/ho
 - **Failures stay on the record.** Failed gates, withdrawn claims, and a same-day control showing my headline number did not hold on a later day (R57).
 - **Fast, with checks.** Vollie's second campaign went from R50 (Nov 13) to a pre-registered R65 (Nov 17); ChatFLY went through eight gated phases in four days.
 
-### Mandatory Military Service — Republic of Korea Army · Aug 2025 – Feb 2027
+### Roles
+
+#### Mandatory Military Service — Republic of Korea Army · Aug 2025 – Feb 2027
 - Built internal automation tools for an artillery brigade, used by 30+ personnel.
 - Won an Army Ideathon award (2026); completed the KAIST SW Education Center AI-SW course for ROKA (2026).
 
-### AI Lead — Peekaboolabs · Dec 2024 – Jul 2025 · Seoul, on-site
+#### AI Lead — Peekaboolabs · Dec 2024 – Jul 2025 · Seoul, on-site
 *4-person seed-stage startup. Accepted to Smilegate's Orange Planet (Apr 2025). A ₩500M seed round was announced in Nov 2025, after my departure.*
 
 - Owned every AI model, all MLOps, and model compression for the company's on-device products.
@@ -59,12 +63,12 @@ Agents drift toward making an experiment pass. [The rules](https://github.com/ho
 
 </details>
 
-### Freelance AI Engineer · Aug – Dec 2024 · remote
+#### Freelance AI Engineer · Aug – Dec 2024 · remote
 - **Livestock monitoring** — YOLO-based vision system that flags abnormal animal behavior. *Working system.*
 - **On-device personalization** — fine-tuned Stable Diffusion on a user's selfies with several LoRA approaches to generate images on the phone. *Prototype.*
 - **Screen agent** — a vision model finds UI elements on a computer screen and Selenium clicks them. *Working system.*
 
-### Lead AI Engineer — Eighty 8 Nine · Feb 2023 – Aug 2024 · remote, UK (later Technical Adviser)
+#### Lead AI Engineer — Eighty 8 Nine · Feb 2023 – Aug 2024 · remote, UK (later Technical Adviser)
 *Full-time alongside university studies.*
 
 - Led 4 engineers to launch **[Noodle4](https://web.archive.org/web/20240430172023/https://www.noodle4.com/)** (site as of Apr 2024), an AI service that matches brands with influencers and reviews submitted video ads.
@@ -78,7 +82,7 @@ Agents drift toward making an experiment pass. [The rules](https://github.com/ho
 
 </details>
 
-### Volunteer contributor (unpaid) — Latitude / AI Dungeon · Jul 2020 – Nov 2021 · remote, US
+#### Volunteer contributor (unpaid) — Latitude / AI Dungeon · Jul 2020 – Nov 2021 · remote, US
 *While in high school.* Joined by sending the team a technical proposal; ran model-compression experiments (distillation, quantization, pruning).
 
 ### More on Vollie

@@ -38,13 +38,15 @@ Agents drift toward making an experiment pass. [The rules](https://github.com/ho
 <details>
 <summary><b>Experience</b></summary>
 
-#### Mandatory Military Service — Republic of Korea Army
+### Mandatory Military Service — Republic of Korea Army
 *Aug 2025 – Feb 2027*
 
 - Built internal automation tools for an artillery brigade, used by 30+ personnel.
 - Won an Army Ideathon award (2026); completed the KAIST SW Education Center AI-SW course for ROKA (2026).
 
-#### AI Lead — Peekaboolabs
+---
+
+### AI Lead — Peekaboolabs
 *Dec 2024 – Jul 2025 · Seoul, on-site · 4-person seed-stage startup, accepted to Smilegate's Orange Planet (Apr 2025); a ₩500M seed round was announced in Nov 2025, after my departure*
 
 **Scope:** owned every AI model, all MLOps, and model compression for the company's on-device products.
@@ -63,21 +65,27 @@ Agents drift toward making an experiment pass. [The rules](https://github.com/ho
 - Worked with Intel and LG on on-device AI projects. Part of the Korea University Startup Station (KUBS) and Seoul Startup Hub × 500 Global expansion program cohorts.
 - Hired after a freelance project with the founder.
 
-#### Freelance AI Engineer
+---
+
+### Freelance AI Engineer
 *Aug – Dec 2024 · remote*
 
 - **Livestock monitoring:** a YOLO-based vision system that flags abnormal animal behavior. *Working system.*
 - **On-device personalization:** fine-tuned Stable Diffusion on a user's selfies with several LoRA approaches to generate images on the phone. *Prototype.*
 - **Screen agent:** a vision model finds UI elements on a computer screen and Selenium clicks them. *Working system.*
 
-#### Lead AI Engineer — Eighty 8 Nine (later Technical Adviser)
+---
+
+### Lead AI Engineer — Eighty 8 Nine (later Technical Adviser)
 *Feb 2023 – Aug 2024 · remote, UK · full-time alongside university studies*
 
 - Led 4 engineers to launch **[Noodle4](https://web.archive.org/web/20240430172023/https://www.noodle4.com/)** (site as of Apr 2024), an AI service that matches brands with influencers and reviews submitted video ads.
 - Owned VQA and LLM development and MLOps deployment, working with 3 frontend/backend engineers. Researched newer Llama-based VQA approaches and put them into production.
 - Built the content-review system with ViLT, LLaVA, and qllama (VQA was the main challenge); added a basic defense against influencers gaming the review (inserting content or other tricks to pass the AI check or inflate scores); deployed on AWS.
 
-#### Volunteer contributor (unpaid) — Latitude / AI Dungeon
+---
+
+### Volunteer contributor (unpaid) — Latitude / AI Dungeon
 *Jul 2020 – Nov 2021 · remote, US · while in high school*
 
 - Joined by sending the team a technical proposal; ran model-compression experiments (distillation, quantization, pruning).
@@ -87,7 +95,7 @@ Agents drift toward making an experiment pass. [The rules](https://github.com/ho
 <details>
 <summary><b>Projects</b></summary>
 
-#### Vollie
+### Vollie
 
 - Speed comes from a router-weight expert-skip rule, a two-stage output head, a sampler fast path, and a fused expert kernel. The bit-identical part of the runtime alone gives 12.0.
 - Got OpenCL running on the Adreno 660 GPU after diagnosing three blockers (an OpenCL 2.0 mismatch, lost native logs, a kernel-compiler bug), then measured it at 0.7–2.9 tok/s, always below the CPU. Serving stays on the CPU, with a self-check that falls back if a driver misbehaves.
@@ -95,7 +103,9 @@ Agents drift toward making an experiment pass. [The rules](https://github.com/ho
 - Wrote up what did not help next to what did: draft-model speculation (0.48–0.76× the plain rate on the phone), n-gram, EAGLE-3 and MTP drafting, early exit (+2.5% perplexity for the cheapest layer), and several cache and kernel ideas.
 - The [Android app on Google Play](https://play.google.com/store/apps/details?id=com.insaneutils.vollie) carries the same final campaign-1 configuration (research build 2.2.21+44, kit r16), so anyone can try it on their own phone and send back a report.
 
-#### Compression at Peekaboolabs
+---
+
+### Compression at Peekaboolabs
 
 | Model | Size vs. public Q8_0 | Perplexity change |
 |---|---|---|
@@ -104,13 +114,17 @@ Agents drift toward making an experiment pass. [The rules](https://github.com/ho
 
 <sub>The two best of ten compressed files; [the report](https://github.com/hoeio/test-ondevice) lists all ten, including one 3B variant at +453% English perplexity. llama.cpp on WikiText-2 and a Korean Wikipedia sample, context 512, first 30 chunks, so differences of a few percent are within noise. Reference is Q8_0, not FP16. Re-run on a Mac in Nov 2026.</sub>
 
-#### Fly mushroom-body research
+---
+
+### Fly mushroom-body research
 
 - **[ChatFLY](https://github.com/hoeio/ChatFLY):** eight simulated flies hold a 300-turn Toki Pona conversation, with replies exactly right 99.7% of the time on new test seeds (synthetic wiring, rate model; controls and failed gates are in the repo).
 - **[NeuralPet](https://github.com/hoeio/neuralpet):** pre-registered plans and 20+ seeds; real fly wiring did not beat a degree-preserving shuffle ([report](https://github.com/hoeio/neuralpet/blob/main/reports/FINAL.md)).
 - Both were built with AI coding assistance; see each repo's `CLAUDE.md`.
 
-#### Open source
+---
+
+### Open source
 
 - [llama.cpp #31378](https://github.com/ggml-org/llama.cpp/pull/31378): a Metal kernel for `GET_ROWS_BACK`, tested on an M4 Pro with `test-backend-ops`. Under review. The PR shows where it is slower than the CPU.
 
@@ -119,13 +133,15 @@ Agents drift toward making an experiment pass. [The rules](https://github.com/ho
 <details>
 <summary><b>Research, awards, education</b></summary>
 
-#### Research
+### Research
 
 - **AI4F — 1st Workshop on LLMs and Generative AI for Finance, ACM ICAIF 2024 (Nov 14, 2024), poster accepted** ([OpenReview](https://openreview.net/forum?id=av3zeO8K7h)): *Enhancing Portfolio Rebalancing Timing Using GPT: A Macroeconomic Indicator Approach.* An LLM plus a quantitative pipeline that reads macroeconomic indicators to time rebalancing, with backtesting. Second author.
 - **Korean Data Analysis Society, Summer 2024 conference:** *Time-lag Prediction Using Language Models for Events Leading to the U.S. Presidential Election* — predicts the time lag between linked political events from timelines.
 - **[SKKU LAMDA Lab R&E (2021–2022)](https://web.archive.org/web/20261031145539/https://sites.google.com/site/hyoh79/research), as a high school student:** Hybrid Attention Unet++, SNN-Transformer, NFT abuse detection.
 
-#### Awards — 13 AI and data competition awards, 2020–2023
+---
+
+### Awards — 13 AI and data competition awards, 2020–2023
 
 | Year | Award |
 |---|---|
@@ -145,27 +161,30 @@ Agents drift toward making an experiment pass. [The rules](https://github.com/ho
 
 *Rank names are English translations of the Korean originals.*
 
-#### Education
+---
+
+### Education
 
 - **Kyung Hee University** — Industrial and Management Systems Engineering (2023–). On leave for mandatory military service (completes Feb 2027).
-  - 1:1 Mentoring Program (2023–) · KHU Ambassador for CES (2023–2024)
+    - 1:1 Mentoring Program (2023–) · KHU Ambassador for CES (2023–2024)
 - **Korea Digital Media High School** — Dept. of Hacking Defense (2020–2022)
-  - Student Mentor, Machine Learning course (2021–2022) · Leader of a beginner ML study group (2022)
-  - Mentor for AI development club "Fregic" (2021–2022) · AI advisor (NPC AI) for game development club "Cracker" (2021)
-- Rendezvous, AI research club — member and free-club leader (2020–2021) · Fregic, AI development club (2022)
-- KISTI Cyber Guardians (2021) · National Management Strategy Institute, Youth National Finance Master (2023–2024) · KAIST SW Education Center Military Personnel AI-SW course (2026)
+    - Student Mentor, Machine Learning course (2021–2022) · Leader of a beginner ML study group (2022)
+    - Mentor for AI development club "Fregic" (2021–2022) · AI advisor (NPC AI) for game development club "Cracker" (2021)
+- **Other:** Rendezvous, AI research club — member and free-club leader (2020–2021) · Fregic, AI development club (2022) · KISTI Cyber Guardians (2021) · National Management Strategy Institute, Youth National Finance Master (2023–2024) · KAIST SW Education Center Military Personnel AI-SW course (2026)
 
 </details>
 
 <details>
 <summary><b>Skills and press</b></summary>
 
-#### Skills
+### Skills
 
 - **On-device & model work:** llama.cpp (C/C++ CPU-kernel patches), GGML/GGUF, KV-cache quantization, Android NDK, ONNX Runtime, LiteRT, Core ML, model compression (quantization, distillation, pruning), LoRA fine-tuning, VQA, YOLO, Stable Diffusion
 - **Stack:** Python, JavaScript, Flutter, PyTorch, TensorFlow, GCP, AWS
 
-#### Press
+---
+
+### Press
 
 - [Peekaboolabs career site — company history (KO, archived)](https://web.archive.org/web/20261031150434/https://career.peekaboolabs.ai/history): how the founder met and hired me as its first team member, AI Lead.
 - [Wowtale, Apr 2025 (EN)](https://wowtale.net/2025/04/25/240348/): Peekaboolabs accepted to Smilegate's Orange Planet.

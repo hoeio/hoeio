@@ -26,7 +26,7 @@ Agents drift toward making an experiment pass. [The rules](https://github.com/ho
 <img src="assets/timeline.svg" alt="Career timeline: 2020 AI Dungeon volunteer; 2023 to 2024 Noodle4 lead at Eighty 8 Nine, UK; August to December 2024 freelance AI engineer; 2024 to 2025 Peekaboolabs AI Lead, Seoul; 2025 to 2027 Army service, building Vollie." width="100%">
 
 <details>
-<summary><b>How I work with AI</b> · the evidence</summary>
+<summary><b>How I work with AI</b></summary>
 
 - **They stop and ask.** In [ChatFLY](https://github.com/hoeio/ChatFLY), more than ten decision records show the agent laying out options and me choosing, before the run.
 - **They cannot bend the rules.** Agents drift toward making an experiment pass: a run planned on a cleaned phone (withdrawn, R11), a quality budget widened after the result (declined, Nov 5), a speedup from a bad control (withdrawn, R25). The rules are in [`RULES.md`](https://github.com/hoeio/vollie/blob/main/RULES.md).
@@ -36,7 +36,7 @@ Agents drift toward making an experiment pass. [The rules](https://github.com/ho
 </details>
 
 <details>
-<summary><b>Experience</b> · five roles</summary>
+<summary><b>Experience</b></summary>
 
 #### Mandatory Military Service — Republic of Korea Army
 *Aug 2025 – Feb 2027*
@@ -85,7 +85,7 @@ Agents drift toward making an experiment pass. [The rules](https://github.com/ho
 </details>
 
 <details>
-<summary><b>Projects</b> · in detail</summary>
+<summary><b>Projects</b></summary>
 
 #### Vollie
 

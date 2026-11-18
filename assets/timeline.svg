@@ -1,24 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 96" width="880" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 88" width="880" role="img" aria-labelledby="t d">
 <title id="t">Career timeline</title>
 <desc id="d">2020 AI Dungeon volunteer; 2023 to 2024 Noodle4 lead at Eighty 8 Nine, UK; August to December 2024 freelance AI engineer; 2024 to 2025 Peekaboolabs AI Lead, Seoul; 2025 to 2027 Army service, building Vollie.</desc>
-<style>text{font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;fill:#24292f}.m{fill:#6e7781;font-size:12px}.n{font-size:28px;font-weight:600}.u{font-size:13px;font-weight:600}.d{font-size:13px;font-weight:600}.l{font-size:14px}.v{font-size:15px;font-weight:600}.h{font-size:16px;font-weight:600}.b{fill:#8c959f}.a{fill:#1f6feb}.g{stroke:#d0d7de;stroke-width:1}.ln{stroke:#8c959f;stroke-width:1.5}.dot{fill:#1f6feb}@media (prefers-color-scheme:dark){text{fill:#e6edf3}.m{fill:#8b949e}.b{fill:#6e7681}.a{fill:#58a6ff}.g{stroke:#30363d}.ln{stroke:#6e7681}.dot{fill:#58a6ff}}</style>
-<line class="ln" x1="0" y1="14" x2="880" y2="14"/>
-<circle class="dot" cx="4.5" cy="14" r="4.5"/>
-<text class="d" x="0.0" y="42">2020</text>
-<text class="m" x="0.0" y="61">AI Dungeon, volunteer</text>
-<circle class="dot" cx="180.5" cy="14" r="4.5"/>
-<text class="d" x="176.0" y="42">2023–2024</text>
-<text class="m" x="176.0" y="61">Noodle4 lead,</text>
-<text class="m" x="176.0" y="77">Eighty 8 Nine (UK)</text>
-<circle class="dot" cx="356.5" cy="14" r="4.5"/>
-<text class="d" x="352.0" y="42">Aug–Dec 2024</text>
-<text class="m" x="352.0" y="61">Freelance AI engineer</text>
-<circle class="dot" cx="532.5" cy="14" r="4.5"/>
-<text class="d" x="528.0" y="42">2024–2025</text>
-<text class="m" x="528.0" y="61">Peekaboolabs AI Lead,</text>
-<text class="m" x="528.0" y="77">Seoul</text>
-<circle class="dot" cx="708.5" cy="14" r="4.5"/>
-<text class="d" x="704.0" y="42">2025–2027</text>
-<text class="m" x="704.0" y="61">Army service,</text>
-<text class="m" x="704.0" y="77">building Vollie</text>
+<style>text{font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;fill:#24292f}.m{fill:#6e7781}.hero{font-size:92px;font-weight:700;letter-spacing:-2px}.unit{font-size:22px;font-weight:600}.s{font-size:20px;font-weight:600}.c{font-size:14px}.v{font-size:15px;font-weight:600}.d{font-size:13px;font-weight:600}.t{font-size:12px}.b{fill:#afb8c1}.a{fill:#1f6feb}.ln{stroke:#8c959f;stroke-width:1.5}.dot{fill:#1f6feb}@media (prefers-color-scheme:dark){text{fill:#e6edf3}.m{fill:#8b949e}.b{fill:#4d5560}.a{fill:#58a6ff}.ln{stroke:#6e7681}.dot{fill:#58a6ff}}</style>
+<line class="ln" x1="0" y1="10" x2="880" y2="10"/>
+<circle class="dot" cx="4.5" cy="10" r="4.5"/><text class="d" x="0.0" y="38">2020</text>
+<text class="m t" x="0.0" y="56">AI Dungeon, volunteer</text>
+<circle class="dot" cx="180.5" cy="10" r="4.5"/><text class="d" x="176.0" y="38">2023–2024</text>
+<text class="m t" x="176.0" y="56">Noodle4 lead,</text>
+<text class="m t" x="176.0" y="72">Eighty 8 Nine (UK)</text>
+<circle class="dot" cx="356.5" cy="10" r="4.5"/><text class="d" x="352.0" y="38">Aug–Dec 2024</text>
+<text class="m t" x="352.0" y="56">Freelance AI engineer</text>
+<circle class="dot" cx="532.5" cy="10" r="4.5"/><text class="d" x="528.0" y="38">2024–2025</text>
+<text class="m t" x="528.0" y="56">Peekaboolabs AI Lead,</text>
+<text class="m t" x="528.0" y="72">Seoul</text>
+<circle class="dot" cx="708.5" cy="10" r="4.5"/><text class="d" x="704.0" y="38">2025–2027</text>
+<text class="m t" x="704.0" y="56">Army service,</text>
+<text class="m t" x="704.0" y="72">building Vollie</text>
 </svg>

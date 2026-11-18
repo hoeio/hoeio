@@ -1,50 +1,38 @@
 # Woobeen Back
 
-**I make LLMs run well on small devices, and I have been building AI products since 2020.**
+**I make LLMs run fast on small devices, and I check my own claims.**
 
-Seoul, Korea · remote, UTC-aligned · [woobin3069@gmail.com](mailto:woobin3069@gmail.com) · [LinkedIn](https://linkedin.com/in/woobeen-back-a29ba5259)
+Seoul · remote, UTC-aligned · available Feb 2027 · [woobin3069@gmail.com](mailto:woobin3069@gmail.com) · [LinkedIn](https://linkedin.com/in/woobeen-back-a29ba5259)
 
-Looking for full-time remote roles in on-device / edge LLM inference, model compression, or mobile AI. Available after military discharge, Feb 2027.
+<img src="assets/hero.svg" alt="20.51 tokens per second: a 7B model on a 2021 phone, against 9.4 for stock llama.cpp. Only the runtime changed." width="100%">
 
-<img src="assets/glance.svg" alt="At a glance: 20.51 tok/s median of 10 runs for a 7B mixture-of-experts model on a 2021 phone, one device. Ollie, Product of the Week #3. llama.cpp PR #31378 under review. 13 AI and data awards, 2020 to 2023." width="100%">
+<sub>Median of 10 runs on one phone and one model, +1.91% perplexity inside a +2% budget set beforehand. Stock 9.4 is from Nov 4, Vollie 20.51 from Nov 8, same phone and file. The number depends on the phone's memory state: a later day printed 11.46 ([R57](https://github.com/hoeio/vollie/blob/main/campaigns/02-25toks-5pct/STATUS.md)). [Check it without a phone](https://github.com/hoeio/vollie/blob/main/tools/reproduce.sh).</sub>
 
-llama.cpp / GGML on ARM · NEON kernels · expert prefetch · bit-identical checks · perplexity gates · GGUF and KV-cache quantization
+| Build | Verify | Direct |
+|:--|:--|:--|
+| llama.cpp work on ARM: NEON kernels, expert prefetch, quantization | Predictions and pass rules written before each run; bit-identical and perplexity gates | AI agents write the code; I set the rules, run every phone test, and decide what counts |
 
-## How I work with AI
+Agents drift toward making an experiment pass. [The rules](https://github.com/hoeio/vollie/blob/main/RULES.md) and the logs (R11, R25, R57) show where I stopped them.
 
-I manage AI coding agents like a team. I set the goals, budgets, and pass and kill rules before any run, run every phone benchmark myself, and decide what counts. The agents write the code, analysis, and logs.
+## Work
 
-- **They stop and ask.** In [ChatFLY](https://github.com/hoeio/ChatFLY), more than ten decision records show the agent laying out options and me choosing, before the run.
-- **They cannot bend the rules.** Agents drift toward making an experiment pass: a run planned on a cleaned phone (withdrawn, R11), a quality budget widened after the result (declined, Nov 5), a speedup from a bad control (withdrawn, R25). The rules are in [`RULES.md`](https://github.com/hoeio/vollie/blob/main/RULES.md).
-- **Failures stay on the record.** Failed gates, withdrawn claims, and a same-day control showing my headline number did not hold on a later day (R57).
-- **Fast, with checks.** Vollie's second campaign went from R50 (Nov 13) to a pre-registered R65 (Nov 17); ChatFLY went through eight gated phases in four days.
-
-## Projects
-
-### Vollie: on-device LLM runtime tuning
-*Android · Galaxy Z Flip 3 · Granite-4.0-H-Tiny (7B MoE) · [GitHub](https://github.com/hoeio/vollie) · [Google Play](https://play.google.com/store/apps/details?id=com.insaneutils.vollie)*
-
-<img src="assets/vollie-speed.svg" alt="Vollie decode speed: stock llama.cpp 9.4 tok/s, bit-identical runtime 12.0, served config 20.51 median" width="100%">
-
-- Patched llama.cpp CPU runtime: **20.51 tok/s** median of 10 runs against 9.4 for stock (about 2.2×), at +1.91% perplexity inside a +2% budget set beforehand. The prediction and pass rule were logged before the run and scored as written.
-- Check it without a phone: [`tools/reproduce.sh`](https://github.com/hoeio/vollie/blob/main/tools/reproduce.sh) rebuilds llama.cpp with the patches and checks bit-identity and the perplexity gate.
-- *Limits:* a cold start is slower (12.3–18.5 tok/s), and on a later day with less page cache free the same app printed 11.46 tok/s (R57). One phone, one model.
-
-### Compression at Peekaboolabs
-Mixed-precision GGUF quantization: EXAONE 3.5 2.4B came out 35% smaller than its public Q8_0 file at +2.4% English perplexity, and Gemma 3 1B 25% smaller at +2%. These are the best two of ten files; [the report](https://github.com/hoeio/test-ondevice) lists all ten.
-
-### Upstream
-[llama.cpp #31378](https://github.com/ggml-org/llama.cpp/pull/31378): a Metal kernel for `GET_ROWS_BACK`, tested on an M4 Pro with `test-backend-ops`. Under review. The PR shows where it is slower than the CPU.
-
-### Side research
-[ChatFLY](https://github.com/hoeio/ChatFLY) and [NeuralPet](https://github.com/hoeio/neuralpet): fly mushroom-body simulations built on the FlyWire connectome, with controls and null results kept. Built with AI coding assistance; see each repo's `CLAUDE.md`.
-
-## Experience
+- **[Vollie](https://github.com/hoeio/vollie)** (Android, [Google Play](https://play.google.com/store/apps/details?id=com.insaneutils.vollie)): the runtime above, built during Army service.
+- **[Ollie](https://apps.apple.com/kr/app/ollie-private-ai-talk/id6740768187):** on-device chatbot I shipped at Peekaboolabs. Product Hunt Product of the Week #3.
+- **[llama.cpp #31378](https://github.com/ggml-org/llama.cpp/pull/31378):** Metal `GET_ROWS_BACK` kernel, under review.
+- **[Compression](https://github.com/hoeio/test-ondevice):** EXAONE 3.5 2.4B 35% smaller than its public Q8_0 at +2.4% English perplexity.
+- **[ChatFLY](https://github.com/hoeio/ChatFLY), [NeuralPet](https://github.com/hoeio/neuralpet):** fly mushroom-body simulations, controls and null results kept.
 
 <img src="assets/timeline.svg" alt="Career timeline: 2020 AI Dungeon volunteer; 2023 to 2024 Noodle4 lead at Eighty 8 Nine, UK; August to December 2024 freelance AI engineer; 2024 to 2025 Peekaboolabs AI Lead, Seoul; 2025 to 2027 Army service, building Vollie." width="100%">
 
 <details>
 <summary>Details</summary>
+
+### How I work with AI
+
+- **They stop and ask.** In [ChatFLY](https://github.com/hoeio/ChatFLY), more than ten decision records show the agent laying out options and me choosing, before the run.
+- **They cannot bend the rules.** Agents drift toward making an experiment pass: a run planned on a cleaned phone (withdrawn, R11), a quality budget widened after the result (declined, Nov 5), a speedup from a bad control (withdrawn, R25). The rules are in [`RULES.md`](https://github.com/hoeio/vollie/blob/main/RULES.md).
+- **Failures stay on the record.** Failed gates, withdrawn claims, and a same-day control showing my headline number did not hold on a later day (R57).
+- **Fast, with checks.** Vollie's second campaign went from R50 (Nov 13) to a pre-registered R65 (Nov 17); ChatFLY went through eight gated phases in four days.
 
 ### Mandatory Military Service — Republic of Korea Army · Aug 2025 – Feb 2027
 - Built internal automation tools for an artillery brigade, used by 30+ personnel.

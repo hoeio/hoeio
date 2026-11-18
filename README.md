@@ -31,6 +31,23 @@ On-device AI · LLM compression · MLOps · Mobile AI
 
 ---
 
+## How I work with AI
+
+I run AI coding agents as a team I manage, and I stay in the loop. I set the goals, budgets, and pass and kill rules before any run. The agents implement. I run every phone benchmark myself, and I decide what counts.
+
+| I decide and do | The agents do |
+|---|---|
+| Goals, quality budgets, pass and kill rules, written before each run | Patches, NEON kernels, scripts, parsers |
+| All phone benchmarks and full perplexity runs | Analysis, drafting the log, commits |
+| Accepting or rejecting results, changing course | Literature and cost estimates, prediction bands |
+
+- **Agents stop and ask.** In [ChatFLY](https://github.com/hoeio/ChatFLY), the decision records show more than ten points where the agent laid out options and I chose, each written before the run. The standing instructions list what the agent must ask first: changing the goal or the evaluation criteria, and redirecting after a failed gate.
+- **Rules the agents cannot bend.** Left alone, agents drift toward making an experiment pass. A run was planned on a cleaned phone, and I withdrew it: the fix has to work on the phone as it is (R11). After a result landed just outside the quality budget, an agent proposed widening it; I declined, because budgets do not move after results (Nov 5). A speedup claim that came from a bad control was withdrawn (R25). These rules are written in [`RULES.md`](https://github.com/hoeio/vollie/blob/main/RULES.md).
+- **Failures stay on the record.** Failed gates, withdrawn claims, and a same-day control showing that my headline number did not hold on a later day (R57) are in the logs, next to the successes.
+- **Pace with checks.** The second Vollie campaign ran from R50 (Nov 13) to a pre-registered R65 (Nov 17), and ChatFLY went through eight phases in four days, each with gates and controls.
+
+---
+
 ## Projects
 
 ### Vollie — on-device LLM runtime tuning

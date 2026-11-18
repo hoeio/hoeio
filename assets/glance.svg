@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 124" width="640" role="img" aria-labelledby="t d">
+<title id="t">At a glance</title>
+<desc id="d">20.51 tokens per second median over 10 runs for a 7B mixture-of-experts model on a 2021 phone, one device. Ollie, Product Hunt Product of the Week number 3. llama.cpp pull request 31378 open. 13 AI and data competition awards, 2020 to 2023.</desc>
+<style>text{font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;fill:#24292f}.m{fill:#6e7781;font-size:12px}.n{font-size:28px;font-weight:600}.u{font-size:13px;font-weight:600}.d{font-size:13px;font-weight:600}.t{font-size:13px}.a{fill:#1f6feb}.g{stroke:#d0d7de;stroke-width:1}.ln{stroke:#8c959f;stroke-width:1.5}.dot{fill:#1f6feb}@media (prefers-color-scheme:dark){text{fill:#e6edf3}.m{fill:#8b949e}.a{fill:#58a6ff}.g{stroke:#30363d}.ln{stroke:#6e7681}.dot{fill:#58a6ff}}</style>
+<line class="g" x1="0" y1="0.5" x2="640" y2="0.5"/><line class="g" x1="0" y1="123.5" x2="640" y2="123.5"/>
+<text class="n" x="0.0" y="46">20.51<tspan class="u m" dx="5">tok/s</tspan></text>
+<text class="m" x="0.0" y="68">7B MoE, 2021 phone,</text>
+<text class="m" x="0.0" y="84">median of 10 runs,</text><text class="m" x="0.0" y="100">one device</text>
+<line class="g" x1="160.0" y1="20" x2="160.0" y2="104"/>
+<text class="n" x="176.0" y="46">#3</text>
+<text class="m" x="176.0" y="68">Product of the Week,</text>
+<text class="m" x="176.0" y="84">Ollie, on-device chatbot</text>
+<line class="g" x1="320.0" y1="20" x2="320.0" y2="104"/>
+<text class="n" x="336.0" y="46">Open</text>
+<text class="m" x="336.0" y="68">llama.cpp PR #31378,</text>
+<text class="m" x="336.0" y="84">under review</text>
+<line class="g" x1="480.0" y1="20" x2="480.0" y2="104"/>
+<text class="n" x="496.0" y="46">13</text>
+<text class="m" x="496.0" y="68">AI and data awards,</text>
+<text class="m" x="496.0" y="84">2020–2023</text>
+</svg>

@@ -8,6 +8,10 @@ On-device AI · LLM compression · MLOps · Mobile AI
 📧 [woobin3069@gmail.com](mailto:woobin3069@gmail.com) · 💼 [LinkedIn](https://linkedin.com/in/woobeen-back-a29ba5259)
 🟢 Looking for full-time remote roles in on-device / edge LLM inference, model compression, or mobile AI (available after military discharge, Feb 2027).
 
+<img src="assets/glance.svg" alt="At a glance: 20.51 tok/s median of 10 runs for a 7B mixture-of-experts model on a 2021 phone, one device. Ollie, Product of the Week #3. llama.cpp PR #31378 under review. 13 AI and data awards, 2020 to 2023." width="640">
+
+[Vollie](https://github.com/hoeio/vollie) · [Ollie](https://apps.apple.com/kr/app/ollie-private-ai-talk/id6740768187) · [llama.cpp PR #31378](https://github.com/ggml-org/llama.cpp/pull/31378)
+
 ---
 
 ## What I work on
@@ -15,19 +19,6 @@ On-device AI · LLM compression · MLOps · Mobile AI
 - **Inference runtime:** llama.cpp / GGML CPU work on ARM: NEON kernels, expert prefetch, thread and memory behavior, profiled per operator and per token.
 - **Correctness:** output checked bit-identical across batch sizes, quality gated by perplexity, claims written down before the runs.
 - **Compression:** mixed-precision GGUF quantization and KV-cache quantization; public models 25–35% smaller than their Q8_0 files at +2–7% perplexity.
-
----
-
-## Highlights
-
-- **Shipped on-device AI to the public.** On a 4-person team I owned all AI and MLOps for [Ollie](https://apps.apple.com/kr/app/ollie-private-ai-talk/id6740768187), which reached Product Hunt *Product of the Week #3*.
-- **Made a 7B model run at 20 tok/s on a 2021 phone CPU.** [Vollie](#vollie--on-device-llm-runtime-tuning) is my llama.cpp runtime work, built during Army service.
-- **Upstream contribution, open and under review.** [ggml-org/llama.cpp #31378](https://github.com/ggml-org/llama.cpp/pull/31378) adds a Metal kernel for `GET_ROWS_BACK` (F32), tested on Apple M4 Pro with `test-backend-ops`. The PR includes benchmarks, including the sizes where it is slower than the CPU. Not merged.
-- **Led a team as a first-year student.** At Eighty 8 Nine I led 4 engineers to launch Noodle4.
-
-```
-2020 Latitude / AI Dungeon (volunteer) → 2023 Noodle4 lead (UK) → 2024 Peekaboolabs AI Lead (Korea) → 2025–27 Army service, building Vollie
-```
 
 ---
 
@@ -82,6 +73,9 @@ I run AI coding agents as a team I manage, and I stay in the loop. I set the goa
 
 <sub>The two best of ten compressed files; the repo's report lists all ten, including one 3B variant at +453% English perplexity. llama.cpp on WikiText-2 and a Korean Wikipedia sample, context 512, first 30 chunks, so differences of a few percent are within noise. Reference is Q8_0, not FP16. Re-run on a Mac in Nov 2026.</sub>
 
+### Upstream: llama.cpp PR #31378
+[ggml-org/llama.cpp #31378](https://github.com/ggml-org/llama.cpp/pull/31378) adds a Metal kernel for `GET_ROWS_BACK` (F32), tested on Apple M4 Pro with `test-backend-ops`. The PR includes benchmarks, including the sizes where it is slower than the CPU. Not merged.
+
 ### Also: fly mushroom-body research (NeuralPet → ChatFLY)
 *Side research, CPU only · [github.com/hoeio/ChatFLY](https://github.com/hoeio/ChatFLY) · [github.com/hoeio/neuralpet](https://github.com/hoeio/neuralpet)*
 
@@ -91,6 +85,11 @@ I run AI coding agents as a team I manage, and I stay in the loop. I set the goa
 ---
 
 ## Experience
+
+<img src="assets/timeline.svg" alt="Career timeline: 2020 AI Dungeon volunteer; 2023 to 2024 Noodle4 lead at Eighty 8 Nine, UK; August to December 2024 freelance AI engineer; 2024 to 2025 Peekaboolabs AI Lead, Seoul; 2025 to 2027 Army service, building Vollie." width="640">
+
+<details>
+<summary>Roles in detail</summary>
 
 ### Mandatory Military Service — Republic of Korea Army · Aug 2025 – Feb 2027
 - Built internal automation tools for an artillery brigade, used by 30+ personnel.
@@ -139,15 +138,18 @@ I run AI coding agents as a team I manage, and I stay in the loop. I set the goa
 ### Volunteer contributor (unpaid) — Latitude / AI Dungeon · Jul 2020 – Nov 2021 · remote, US
 *While in high school.* Joined by sending the team a technical proposal; ran model-compression experiments (distillation, quantization, pruning).
 
+</details>
+
 ---
 
-## Research
+<details>
+<summary><b>Research</b></summary>
 
 - **AI4F — 1st Workshop on LLMs and Generative AI for Finance, ACM ICAIF 2024 (Nov 14, 2024), poster accepted** ([OpenReview](https://openreview.net/forum?id=av3zeO8K7h)): *Enhancing Portfolio Rebalancing Timing Using GPT: A Macroeconomic Indicator Approach.* An LLM plus a quantitative pipeline that reads macroeconomic indicators to time rebalancing, with backtesting. Second author.
 - **Korean Data Analysis Society, Summer 2024 conference:** *Time-lag Prediction Using Language Models for Events Leading to the U.S. Presidential Election* — predicts the time lag between linked political events from timelines.
 - **[SKKU LAMDA Lab R&E (2021–2022)](https://web.archive.org/web/20261031145539/https://sites.google.com/site/hyoh79/research), as a high school student:** Hybrid Attention Unet++, SNN-Transformer, NFT abuse detection.
 
----
+</details>
 
 ## Skills
 

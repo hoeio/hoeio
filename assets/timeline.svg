@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 108" width="640" role="img" aria-labelledby="t d">
+<title id="t">Career timeline</title>
+<desc id="d">2020 AI Dungeon volunteer; 2023 to 2024 Noodle4 lead at Eighty 8 Nine, UK; August to December 2024 freelance AI engineer; 2024 to 2025 Peekaboolabs AI Lead, Seoul; 2025 to 2027 Army service, building Vollie.</desc>
+<style>text{font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;fill:#24292f}.m{fill:#6e7781;font-size:12px}.n{font-size:28px;font-weight:600}.u{font-size:13px;font-weight:600}.d{font-size:13px;font-weight:600}.t{font-size:13px}.a{fill:#1f6feb}.g{stroke:#d0d7de;stroke-width:1}.ln{stroke:#8c959f;stroke-width:1.5}.dot{fill:#1f6feb}@media (prefers-color-scheme:dark){text{fill:#e6edf3}.m{fill:#8b949e}.a{fill:#58a6ff}.g{stroke:#30363d}.ln{stroke:#6e7681}.dot{fill:#58a6ff}}</style>
+<line class="ln" x1="64" y1="24" x2="576" y2="24"/>
+<circle class="dot" cx="64" cy="24" r="4.5"/>
+<text class="d" x="64" y="52" text-anchor="middle">2020</text>
+<text class="m" x="64" y="71" text-anchor="middle">AI Dungeon</text>
+<text class="m" x="64" y="87" text-anchor="middle">volunteer</text>
+<circle class="dot" cx="192" cy="24" r="4.5"/>
+<text class="d" x="192" y="52" text-anchor="middle">2023–2024</text>
+<text class="m" x="192" y="71" text-anchor="middle">Noodle4 lead</text>
+<text class="m" x="192" y="87" text-anchor="middle">Eighty 8 Nine, UK</text>
+<circle class="dot" cx="320" cy="24" r="4.5"/>
+<text class="d" x="320" y="52" text-anchor="middle">Aug–Dec 2024</text>
+<text class="m" x="320" y="71" text-anchor="middle">Freelance</text>
+<text class="m" x="320" y="87" text-anchor="middle">AI engineer</text>
+<circle class="dot" cx="448" cy="24" r="4.5"/>
+<text class="d" x="448" y="52" text-anchor="middle">2024–2025</text>
+<text class="m" x="448" y="71" text-anchor="middle">Peekaboolabs</text>
+<text class="m" x="448" y="87" text-anchor="middle">AI Lead, Seoul</text>
+<circle class="dot" cx="576" cy="24" r="4.5"/>
+<text class="d" x="576" y="52" text-anchor="middle">2025–2027</text>
+<text class="m" x="576" y="71" text-anchor="middle">Army service</text>
+<text class="m" x="576" y="87" text-anchor="middle">building Vollie</text>
+</svg>

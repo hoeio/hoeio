@@ -99,7 +99,7 @@ I patch llama.cpp for ARM phones. AI agents write much of the code; I set the ru
 - Wrote up what did not help next to what did: draft-model speculation (0.48–0.76× the plain rate on the phone), n-gram, EAGLE-3 and MTP drafting, early exit (+2.5% perplexity for the cheapest layer), and several cache and kernel ideas.
 - Reading the numbers, campaign 1: median of 10 runs on one phone and one model file (Granite-4.0-H-Tiny), +1.91% perplexity (budget +2%, hard limit +20% over F16). Stock 9.4 is from Nov 4 and Vollie 20.51 from Nov 8; the bit-identical runtime alone reads 12.0. On Nov 14 the same app and test printed 11.46 because the phone's page cache was smaller that day. [Check it without a phone](https://github.com/hoeio/vollie/blob/main/tools/reproduce.sh).
 - Reading the numbers, campaign 2 (closed Nov 21): goal 25 tok/s on stock weights within a +5% budget. OLMoE-1B-7B: median 27.21 tok/s (1 of 10 runs below 25.0), +3.2% perplexity (host), against 23.68 for stock llama.cpp in the same session, which was higher than I had predicted. Granite-4.0-H-Tiny: 23.21, not met. Power saving off, one phone, and the run began warm, a deviation the report states.
-- The [Android app on Google Play](https://play.google.com/store/apps/details?id=com.insaneutils.vollie) lets you choose between the campaign 1 and campaign 2 runtimes, so anyone can try either on their own phone and send back a report.
+- The [Android app on Google Play](https://play.google.com/store/apps/details?id=com.insaneutils.vollie) offers both runtimes, C1 (campaign 1) and C2 (campaign 2),, so anyone can try either on their own phone and send back a report.
 
 ---
 

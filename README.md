@@ -8,13 +8,13 @@ Seoul · remote, UTC-aligned · available Feb 2027 · [woobin3069@gmail.com](mai
 
 <img src="assets/hero.svg" alt="20.51 tokens per second: a 7B model on a 2021 phone, against 9.4 for stock llama.cpp. Only the runtime changed." width="100%">
 
-<sub>Campaign 1: median of 10 runs, +1.91% perplexity inside a +2% budget set beforehand. Stock (Nov 4) and Vollie (Nov 8) were measured on different days, and phone state moves the number ([R57](https://github.com/hoeio/vollie/blob/main/campaigns/02-25toks-5pct/STATUS.md)).<br>Campaign 2: the 25 tok/s goal was met on OLMoE-1B-7B (27.21 vs 23.68 for stock, same conditions), not on Granite (23.21).</sub>
+<sub>Campaign 1: median of 10 runs, +1.91% perplexity inside a +2% budget set beforehand. Stock (Nov 4) and Vollie (Nov 8) were measured on different days, and phone state moves the number ([R57](https://github.com/hoeio/vollie/blob/main/campaigns/02-25toks-5pct/STATUS.md)).</sub>
 
 I patch llama.cpp for ARM phones. AI agents write much of the code; I set the rules, run every phone test, and decide what counts. [The rules and logs](https://github.com/hoeio/vollie/blob/main/RULES.md) show where I stopped them, and where my own number did not hold.
 
 ## Work
 
-- **[Vollie](https://github.com/hoeio/vollie)** (Android, [Google Play](https://play.google.com/store/apps/details?id=com.insaneutils.vollie)): the runtime above, built during Army service.
+- **[Vollie](https://github.com/hoeio/vollie)** (Android, [Google Play](https://play.google.com/store/apps/details?id=com.insaneutils.vollie)): the runtime above, built during Army service. Its second campaign met the 25 tok/s goal on OLMoE-1B-7B (27.21 vs 23.68 for stock, same conditions) and not on Granite (23.21).
 - **[Ollie](https://apps.apple.com/kr/app/ollie-private-ai-talk/id6740768187):** on-device chatbot shipped at Peekaboolabs, where I owned all AI and MLOps on a 4-person team. Product Hunt Product of the Week #3. Its SDK is open source ([Lora-SDK](https://pub.dev/packages/lora_sdk)).
 - **[Compression](https://github.com/hoeio/test-ondevice):** EXAONE 3.5 2.4B came out 35% smaller than its public Q8_0 at +2.4% English perplexity (best of ten variants; the report lists all).
 - **[ChatFLY](https://github.com/hoeio/ChatFLY), [NeuralPet](https://github.com/hoeio/neuralpet):** fly mushroom-body simulations, controls and null results kept.

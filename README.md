@@ -29,7 +29,7 @@ Agents drift toward making an experiment pass. [The rules](https://github.com/ho
 - **They stop and ask.** In [ChatFLY](https://github.com/hoeio/ChatFLY), more than ten decision records show the agent laying out options and me choosing, before the run.
 - **They cannot bend the rules.** Agents drift toward making an experiment pass: a run planned on a cleaned phone (withdrawn, R11), a quality budget widened after the result (declined, Nov 5), a speedup from a bad control (withdrawn, R25). The rules are in [`RULES.md`](https://github.com/hoeio/vollie/blob/main/RULES.md).
 - **Failures stay on the record.** Failed gates, withdrawn claims, and a same-day control showing my headline number did not hold on a later day (R57).
-- **Fast, with checks.** Vollie's second campaign went from R50 (Nov 13) to a pre-registered R65 (Nov 17); ChatFLY went through eight gated phases in four days.
+- **Fast, with checks.** Vollie's second campaign went from R50 (Nov 13) to a scored R70 (Nov 21); ChatFLY went through eight gated phases in four days.
 
 </details>
 
@@ -99,6 +99,7 @@ Agents drift toward making an experiment pass. [The rules](https://github.com/ho
 - Got OpenCL running on the Adreno 660 GPU after diagnosing three blockers (an OpenCL 2.0 mismatch, lost native logs, a kernel-compiler bug), then measured it at 0.7–2.9 tok/s, always below the CPU. Serving stays on the CPU, with a self-check that falls back if a driver misbehaves.
 - Saves the model's state after each reply, so a follow-up in a 2,000-token chat is read in ~3 s instead of ~110 s (calculated from measured read speed, not measured end-to-end).
 - Wrote up what did not help next to what did: draft-model speculation (0.48–0.76× the plain rate on the phone), n-gram, EAGLE-3 and MTP drafting, early exit (+2.5% perplexity for the cheapest layer), and several cache and kernel ideas.
+- Campaign 2 (closed Nov 21): 25 tok/s on stock weights within a +5% perplexity budget. Met on OLMoE-1B-7B (median 27.21 tok/s, 1 of 10 runs below 25.0; stock llama.cpp read 23.68 under the same conditions), not met on Granite-4.0-H-Tiny (23.21). Power saving off, a warm start that is stated in the report, one phone.
 - The [Android app on Google Play](https://play.google.com/store/apps/details?id=com.insaneutils.vollie) carries the same final campaign-1 configuration (research build 2.2.21+44, kit r16), so anyone can try it on their own phone and send back a report.
 
 ---

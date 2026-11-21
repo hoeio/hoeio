@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 166" width="880" role="img" aria-labelledby="t d">
-<title id="t">20.51 tokens per second</title>
-<desc id="d">A 7B mixture-of-experts model decodes at a median of 20.51 tokens per second on a 2021 phone, against 9.4 for stock llama.cpp. Only the runtime changed.</desc>
+<title id="t">27.21 tokens per second</title>
+<desc id="d">A 7B mixture-of-experts model (OLMoE-1B-7B) decodes at a median of 27.21 tokens per second on a 2021 phone, against 23.68 for stock llama.cpp under the same conditions. Only the runtime changed.</desc>
 <style>text{font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;fill:#24292f}.m{fill:#6e7781}.hero{font-size:92px;font-weight:700;letter-spacing:-2px}.unit{font-size:22px;font-weight:600}.s{font-size:20px;font-weight:600}.c{font-size:14px}.v{font-size:15px;font-weight:600}.d{font-size:13px;font-weight:600}.t{font-size:12px}.b{fill:#afb8c1}.a{fill:#1f6feb}.ln{stroke:#8c959f;stroke-width:1.5}.dot{fill:#1f6feb}@media (prefers-color-scheme:dark){text{fill:#e6edf3}.m{fill:#8b949e}.b{fill:#4d5560}.a{fill:#58a6ff}.ln{stroke:#6e7681}.dot{fill:#58a6ff}}</style>
-<text class="hero" x="-4" y="92">20.51<tspan class="unit m" dx="10" letter-spacing="0">tok/s</tspan></text>
+<text class="hero" x="-4" y="92">27.21<tspan class="unit m" dx="10" letter-spacing="0">tok/s</tspan></text>
 <text class="s" x="0" y="130">A 7B model on a 2021 phone.</text>
 <text class="c m" x="0" y="154">Only the runtime changed; the model file did not.</text>
-<text class="c m" x="520" y="52">Stock llama.cpp</text><rect class="b" x="520" y="62" width="137.5" height="22" rx="3"/><text class="v" x="667.5" y="79">9.4</text>
-<text class="c m" x="520" y="112">Vollie</text><rect class="a" x="520" y="122" width="300.0" height="22" rx="3"/><text class="v" x="830.0" y="139">20.51</text>
+<text class="c m" x="520" y="52">Stock llama.cpp</text><rect class="b" x="520" y="62" width="261.1" height="22" rx="3"/><text class="v" x="791.1" y="79">23.68</text>
+<text class="c m" x="520" y="112">Vollie</text><rect class="a" x="520" y="122" width="300.0" height="22" rx="3"/><text class="v" x="830.0" y="139">27.21</text>
 </svg>

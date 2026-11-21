@@ -2,19 +2,15 @@
 
 **I make LLMs run fast on small devices, and I check my own claims.**
 
-Seoul · remote, UTC-aligned · available Feb 2027 · [woobin3069@gmail.com](mailto:woobin3069@gmail.com) · [LinkedIn](https://linkedin.com/in/woobeen-back-a29ba5259)
-
 Open to remote roles in on-device / edge LLM inference, model compression, and mobile AI.
+
+Seoul · remote, UTC-aligned · available Feb 2027 · [woobin3069@gmail.com](mailto:woobin3069@gmail.com) · [LinkedIn](https://linkedin.com/in/woobeen-back-a29ba5259)
 
 <img src="assets/hero.svg" alt="20.51 tokens per second: a 7B model on a 2021 phone, against 9.4 for stock llama.cpp. Only the runtime changed." width="100%">
 
-<sub>Campaign 1: median of 10 runs on one phone and one model, +1.91% perplexity inside a +2% budget set beforehand. Stock 9.4 is from Nov 4, Vollie 20.51 from Nov 8, same phone and file. The number depends on the phone's memory state: a later day printed 11.46 ([R57](https://github.com/hoeio/vollie/blob/main/campaigns/02-25toks-5pct/STATUS.md)). [Check it without a phone](https://github.com/hoeio/vollie/blob/main/tools/reproduce.sh).</sub>
+<sub>Campaign 1: median of 10 runs, +1.91% perplexity inside a +2% budget set beforehand. Stock (Nov 4) and Vollie (Nov 8) were measured on different days, and phone state moves the number ([R57](https://github.com/hoeio/vollie/blob/main/campaigns/02-25toks-5pct/STATUS.md)).<br>Campaign 2: the 25 tok/s goal was met on OLMoE-1B-7B (27.21 vs 23.68 for stock, same conditions), not on Granite (23.21).</sub>
 
-<sub>Campaign 2 (closed Nov 21): the 25 tok/s goal was met on OLMoE-1B-7B at a median of 27.21 tok/s, +15% over stock llama.cpp's 23.68 under the same conditions (+3.2% perplexity inside a +5% budget). Not met on Granite-4.0-H-Tiny (23.21). Power saving off; the run began warm, which the report states.</sub>
-
-I patch llama.cpp for ARM phones: NEON kernels, expert prefetch, quantization. AI agents write much of the code; I set the rules, run every phone test, and decide what counts.
-
-Agents drift toward making an experiment pass. [The rules](https://github.com/hoeio/vollie/blob/main/RULES.md) and the logs (R11, R25) show where I stopped them. A same-day control (R57) is how I found my own headline number did not hold.
+I patch llama.cpp for ARM phones. AI agents write much of the code; I set the rules, run every phone test, and decide what counts. [The rules and logs](https://github.com/hoeio/vollie/blob/main/RULES.md) show where I stopped them, and where my own number did not hold.
 
 ## Work
 
@@ -101,7 +97,8 @@ Agents drift toward making an experiment pass. [The rules](https://github.com/ho
 - Got OpenCL running on the Adreno 660 GPU after diagnosing three blockers (an OpenCL 2.0 mismatch, lost native logs, a kernel-compiler bug), then measured it at 0.7–2.9 tok/s, always below the CPU. Serving stays on the CPU, with a self-check that falls back if a driver misbehaves.
 - Saves the model's state after each reply, so a follow-up in a 2,000-token chat is read in ~3 s instead of ~110 s (calculated from measured read speed, not measured end-to-end).
 - Wrote up what did not help next to what did: draft-model speculation (0.48–0.76× the plain rate on the phone), n-gram, EAGLE-3 and MTP drafting, early exit (+2.5% perplexity for the cheapest layer), and several cache and kernel ideas.
-- Campaign 2 (closed Nov 21): 25 tok/s on stock weights within a +5% perplexity budget. Met on OLMoE-1B-7B (median 27.21 tok/s, 1 of 10 runs below 25.0; stock llama.cpp read 23.68 under the same conditions), not met on Granite-4.0-H-Tiny (23.21). Power saving off, a warm start that is stated in the report, one phone.
+- Reading the numbers, campaign 1: median of 10 runs on one phone and one model file (Granite-4.0-H-Tiny), +1.91% perplexity (budget +2%, hard limit +20% over F16). Stock 9.4 is from Nov 4 and Vollie 20.51 from Nov 8; the bit-identical runtime alone reads 12.0. On Nov 14 the same app and test printed 11.46 because the phone's page cache was smaller that day. [Check it without a phone](https://github.com/hoeio/vollie/blob/main/tools/reproduce.sh).
+- Reading the numbers, campaign 2 (closed Nov 21): goal 25 tok/s on stock weights within a +5% budget. OLMoE-1B-7B: median 27.21 tok/s (1 of 10 runs below 25.0), +3.2% perplexity (host), against 23.68 for stock llama.cpp in the same session, which was higher than I had predicted. Granite-4.0-H-Tiny: 23.21, not met. Power saving off, one phone, and the run began warm, a deviation the report states.
 - The [Android app on Google Play](https://play.google.com/store/apps/details?id=com.insaneutils.vollie) carries the same final campaign-1 configuration (research build 2.2.21+44, kit r16), so anyone can try it on their own phone and send back a report.
 
 ---
